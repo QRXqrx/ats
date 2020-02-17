@@ -38,6 +38,7 @@ public class Main {
         String classDir = settings.getProperty("class_dir_path");
         String javaPath = settings.getProperty("java_src_path");
         String outputDir = settings.getProperty("output_dir_path");
+        String outputFileName = settings.getProperty("output_file_name");
         com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo
                 = com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions.valueOf(
                         settings.getProperty("data_dependency_option")
@@ -62,7 +63,7 @@ public class Main {
         System.out.println("Start to write into file...");
         long time5 = System.currentTimeMillis();
         // Output to file
-        outputToFile(outputDir, atomTestCases);
+        outputToFile(outputDir, outputFileName, atomTestCases);
         long time6 = System.currentTimeMillis();
         System.out.println("Writing into file done, time(ms): " + (time6 - time5));
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
@@ -95,13 +96,18 @@ public class Main {
         return slicer.backwardSlice();
     }
 
-    private static void outputToFile(String outputDir, List<AtomTestCase> atomTestCases) {
+    private static void outputToFile(String outputDir, String outputFileName , List<AtomTestCase> atomTestCases) {
         // Output to file
-        String absFilePath = outputDir + System.getProperty("file.separator") + "ALUTestSliceResults.txt";
+        final String TXT_SUFFIX = ".txt";
+        if(!outputFileName.contains(TXT_SUFFIX)) {
+            outputFileName += TXT_SUFFIX;
+        }
+
+        String absFilePath = outputDir + System.getProperty("file.separator") + outputFileName;
         StringBuilder contentBuilder = new StringBuilder();
-        atomTestCases.forEach((atc) -> {
-            contentBuilder.append(atc.dumpSnippet()).append("\n---------------------------------------------------\n");
-        });
+        atomTestCases.forEach((atc) ->
+            contentBuilder.append(atc.dumpSnippet()).append("\n---------------------------------------------------\n")
+        );
         try {
             FileUtil.writeContentIntoFile(absFilePath, contentBuilder.toString());
         } catch (IOException e) {

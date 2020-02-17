@@ -1,0 +1,318 @@
+@Test
+public void testALUTest0() {
+		ALU alu = new ALU();
+		assertEquals("0000000011101001", alu.integerRepresentation("233", 16));
+}
+---------------------------------------------------
+@Test
+public void testALUTest1() {
+		assertEquals("0000000011101001", alu.integerRepresentation("233", 16));
+}
+---------------------------------------------------
+@Test
+public void testALUTest2() {
+		ALU alu = new ALU();
+		assertEquals("1111111100010111", alu.integerRepresentation("-233", 16));
+}
+---------------------------------------------------
+@Test
+public void testALUTest3() {
+		assertEquals("1111111100010111", alu.integerRepresentation("-233", 16));
+}
+---------------------------------------------------
+@Test
+public void testALUTest4() {
+		ALU alu = new ALU();
+		assertEquals("01000000010010010000111111011010", alu.ieee754("3.1415926", 32));
+}
+---------------------------------------------------
+@Test
+public void testALUTest5() {
+		assertEquals("01000000010010010000111111011010", alu.ieee754("3.1415926", 32));
+}
+---------------------------------------------------
+@Test
+public void testALUTest6() {
+		ALU alu = new ALU();
+		assertEquals("1100000000001000000000000000000000000000000000000000000000000000", alu.ieee754("-3.00", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest7() {
+		assertEquals("1100000000001000000000000000000000000000000000000000000000000000", alu.ieee754("-3.00", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest8() {
+		ALU alu = new ALU();
+		assertEquals("0000000000000000000000000000000000000000000000000000000000000000", alu.ieee754("0.0", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest9() {
+		assertEquals("0000000000000000000000000000000000000000000000000000000000000000", alu.ieee754("0.0", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest10() {
+		ALU alu = new ALU();
+		assertEquals("0011111111001101110100101111000111000000000000000000000000000000", alu.ieee754("0.233", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest11() {
+		assertEquals("0011111111001101110100101111000111000000000000000000000000000000", alu.ieee754("0.233", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest12() {
+		ALU alu = new ALU();
+		assertEquals("0100000001101101001", alu.ieee754("233", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest13() {
+		assertEquals("0100000001101101001", alu.ieee754("233", 64));
+}
+---------------------------------------------------
+@Test
+public void testALUTest14() {
+		ALU alu = new ALU();
+		assertEquals("", alu.ieee754("3.1415926", 0));
+}
+---------------------------------------------------
+@Test
+public void testALUTest15() {
+		assertEquals("", alu.ieee754("3.1415926", 0));
+}
+---------------------------------------------------
+@Test
+public void testALUTest16() {
+		ALU alu = new ALU();
+		assertEquals("0000001000", alu.floatRepresentation("0.01", 4, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest17() {
+		assertEquals("0000001000", alu.floatRepresentation("0.01", 4, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest18() {
+		ALU alu = new ALU();
+		assertEquals("00010100", alu.floatRepresentation("0.01", 2, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest19() {
+		assertEquals("00010100", alu.floatRepresentation("0.01", 2, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest20() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("-6"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest21() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("-6"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest22() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("-6"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest23() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("-6"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest24() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("0000001010"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest25() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("0000001010"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest26() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("0000001010"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest27() {
+		OutputStream os = new ByteArrayOutputStream();
+		assertTrue(os.toString().trim().contains("0000001010"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest28() {
+		assertEquals("NaN", alu.floatRepresentation(String.valueOf(Integer.MAX_VALUE), 2, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest29() {
+		ALU alu = new ALU();
+		assertEquals("NaN", alu.floatRepresentation(String.valueOf(Integer.MAX_VALUE), 2, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest30() {
+		assertEquals("NaN", alu.floatRepresentation(String.valueOf(Integer.MAX_VALUE), 2, 5));
+}
+---------------------------------------------------
+@Test
+public void testALUTest31() {
+		ALU alu = new ALU();
+		assertEquals("+Inf", alu.floatRepresentation("2", -1, 1));
+}
+---------------------------------------------------
+@Test
+public void testALUTest32() {
+		assertEquals("+Inf", alu.floatRepresentation("2", -1, 1));
+}
+---------------------------------------------------
+@Test
+public void testALUTest33() {
+		ALU alu = new ALU();
+		assertEquals("233", alu.integerTrueValue("0000000011101001"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest34() {
+		assertEquals("233", alu.integerTrueValue("0000000011101001"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest35() {
+		ALU alu = new ALU();
+		assertEquals("11.375", alu.floatTrueValue("01000001001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest36() {
+		assertEquals("11.375", alu.floatTrueValue("01000001001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest37() {
+		ALU alu = new ALU();
+		assertEquals("-11.375", alu.floatTrueValue("11000001001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest38() {
+		assertEquals("-11.375", alu.floatTrueValue("11000001001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest39() {
+		ALU alu = new ALU();
+		assertEquals("+Inf", alu.floatTrueValue("01111111100000000000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest40() {
+		assertEquals("+Inf", alu.floatTrueValue("01111111100000000000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest41() {
+		ALU alu = new ALU();
+		assertEquals("NaN", alu.floatTrueValue("11111111100000000001", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest42() {
+		assertEquals("NaN", alu.floatTrueValue("11111111100000000001", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest43() {
+		ALU alu = new ALU();
+		assertEquals("0", alu.floatTrueValue("10000000000000000000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest44() {
+		assertEquals("0", alu.floatTrueValue("10000000000000000000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest45() {
+		ALU alu = new ALU();
+		assertEquals("-4.9591167925315254E-39", alu.floatTrueValue("10000000001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest46() {
+		assertEquals("-4.9591167925315254E-39", alu.floatTrueValue("10000000001101100000", 8, 11));
+}
+---------------------------------------------------
+@Test
+public void testALUTest47() {
+		ALU alu = new ALU();
+		assertEquals("10000", alu.oneAdder("1111"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest48() {
+		assertEquals("10000", alu.oneAdder("1111"));
+}
+---------------------------------------------------
+@Test
+public void testALUTest49() {
+		ALU alu = new ALU();
+		assertEquals("000000111", alu.adder("0100", "0011", '0', 8));
+}
+---------------------------------------------------
+@Test
+public void testALUTest50() {
+		assertEquals("000000111", alu.adder("0100", "0011", '0', 8));
+}
+---------------------------------------------------
+@Test
+public void testALUTest51() {
+		ALU alu = new ALU();
+		assertEquals("1000111", alu.adder("1100", "1011", '0', 6));
+}
+---------------------------------------------------
+@Test
+public void testALUTest52() {
+		assertEquals("1000111", alu.adder("1100", "1011", '0', 6));
+}
+---------------------------------------------------
+@Test
+public void testALUTest53() {
+		ALU alu = new ALU();
+		assertEquals("0111111", alu.adder("1100", "0011", '0', 6));
+}
+---------------------------------------------------
+@Test
+public void testALUTest54() {
+		assertEquals("0111111", alu.adder("1100", "0011", '0', 6));
+}
+---------------------------------------------------
+@Test
+public void testALUTest55() {
+		ALU alu = new ALU();
+		assertEquals("1000", alu.leftShift("0010", 2));
+}
+---------------------------------------------------
+@Test
+public void testALUTest56() {
+		assertEquals("1000", alu.leftShift("0010", 2));
+}
+---------------------------------------------------
+
