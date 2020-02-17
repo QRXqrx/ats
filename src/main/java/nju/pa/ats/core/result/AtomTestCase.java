@@ -27,6 +27,10 @@ public class AtomTestCase extends AtomCodeSnippet{
         super(name, sourcePath, sourceCodeLines);
     }
 
+    public AtomTestCase(List<String> sourceCodeLines) {
+        super(sourceCodeLines);
+    }
+
     /**
      * @author QRX
      * @date 2020-02-12
@@ -35,12 +39,19 @@ public class AtomTestCase extends AtomCodeSnippet{
     @Override
     public String dumpSnippet() {
         final String LINE_SEPARATOR = System.lineSeparator();
+
         StringBuilder result = new StringBuilder();
+        result.append("@Test").append(LINE_SEPARATOR);
+        result.append("public void test").append(getName()).append("() {").append(LINE_SEPARATOR);
         // TODO: sourceCodeLines may contain "public void methodName".
-        result.append("@Test").append(LINE_SEPARATOR)
-                .append("public void test").append(getName()).append("() {").append(LINE_SEPARATOR);
         getSourceCodeLines().forEach((line) -> result.append(line).append(LINE_SEPARATOR));
         result.append("}");
+
         return result.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 }

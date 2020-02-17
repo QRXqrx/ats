@@ -47,6 +47,9 @@ public class Main {
                 = com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions.valueOf(
                         settings.getProperty("control_dependency_option")
         );
+        boolean isDistinct = settings.getProperty("is_distinct").equalsIgnoreCase("true");
+
+
         long time2 = System.currentTimeMillis();
         System.out.println("Load settings done, time(ms): " + (time2 - time1));
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
@@ -54,7 +57,7 @@ public class Main {
         System.out.println("Start to make slices...");
         long time3 = System.currentTimeMillis();
         // Make slice
-        List<AtomTestCase> atomTestCases = makeSlice(classDir, javaPath, ddo, cdo);
+        List<AtomTestCase> atomTestCases = makeSlice(classDir, javaPath, ddo, cdo, isDistinct);
         long time4 = System.currentTimeMillis();
         System.out.println("Slice done, time(ms): " + (time4 - time3));
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
@@ -73,7 +76,8 @@ public class Main {
             String classDir,
             String javaPath,
             com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo,
-            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions cdo
+            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions cdo,
+            boolean isDistinct
     ) {
         // Slice
         SlicerConfig config = null;
@@ -92,7 +96,7 @@ public class Main {
         List<String> targetMethods = new ArrayList<>();
         // TODO: Use settings configuration to get targetMethods
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPath, targetMethods);
+        Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);
         return slicer.backwardSlice();
     }
 

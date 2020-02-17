@@ -12,6 +12,8 @@ import com.ibm.wala.ssa.SSAInvokeInstruction;
 import com.ibm.wala.types.ClassLoaderReference;
 import com.ibm.wala.util.config.AnalysisScopeReader;
 import com.ibm.wala.util.intset.IntSet;
+import nju.pa.ats.core.result.AtomCodeSnippet;
+import nju.pa.ats.core.result.AtomTestCase;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +31,24 @@ public class SlicerUtil {
 
     /** Don't permit user construct this class, as this is a util class. */
     private SlicerUtil() { }
+
+    /**
+     * @param atomTestCase needs refinement.
+     */
+    public static void refineAtomTestCase(AtomTestCase atomTestCase) {
+        List<String> srcLines = atomTestCase.getSourceCodeLines();
+        List<String> deleteLines = new ArrayList<>();
+        int cnt = 1;
+        for (String srcLine : srcLines) {
+            if(srcLine.contains("assert")) {
+                if(cnt != srcLines.size()) {
+                    deleteLines.add(srcLine);
+                }
+            }
+            cnt++;
+        }
+        srcLines.removeAll(deleteLines);
+    }
 
     /**
      *

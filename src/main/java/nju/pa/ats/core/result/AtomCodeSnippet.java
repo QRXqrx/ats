@@ -19,6 +19,7 @@ public abstract class AtomCodeSnippet {
     private String name;
 
     /**
+     * TODO: May be delete in the future.
      * The absolute path of source file of this unit.
      */
     private String sourcePath;
@@ -33,6 +34,10 @@ public abstract class AtomCodeSnippet {
      * composed of the lines from <code>sourceCodeLines</code>
      */
     public abstract String dumpSnippet();
+
+    public AtomCodeSnippet(List<String> sourceCodeLines) {
+        this.sourceCodeLines = sourceCodeLines;
+    }
 
     public AtomCodeSnippet(String name) {
         this.name = name;
@@ -79,17 +84,25 @@ public abstract class AtomCodeSnippet {
     }
 
 
+    /**
+     *
+     * @param o anothor AtomCodeSnippet
+     * @return false if,
+     *         true if contents are same.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AtomCodeSnippet that = (AtomCodeSnippet) o;
-        return dumpSnippet().equals(that.dumpSnippet());
+        /*return dumpSnippet().equals(that.dumpSnippet());*/
+        return this.sourceCodeLines.equals(that.getSourceCodeLines());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, sourcePath, sourceCodeLines);
+        /*return Objects.hash(name, sourcePath, sourceCodeLines);*/
+        return Objects.hash(sourcePath, sourceCodeLines);
     }
 
     @Override

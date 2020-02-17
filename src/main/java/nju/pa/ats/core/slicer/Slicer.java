@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * First Slicer, implements <interface>SliceService</interface>
@@ -36,6 +37,7 @@ public class Slicer implements SliceService {
     private SlicerConfig config;
     private String javaPath;
     private List<String> targetMethods;
+    private boolean isDistinct = false;
 
     /**
      *
@@ -47,15 +49,35 @@ public class Slicer implements SliceService {
         this.javaPath = javaPath;
     }
 
+    public Slicer(AnalysisScope scope, String javaPath, boolean isDistinct) {
+        this.config = new SlicerConfig(scope);
+        this.javaPath = javaPath;
+        this.isDistinct = isDistinct;
+    }
+
+
     public Slicer(AnalysisScope scope, String javaPath, List<String> targetMethods) {
         this.config = new SlicerConfig(scope);
         this.javaPath = javaPath;
         this.targetMethods = targetMethods;
     }
 
+    public Slicer(AnalysisScope scope, String javaPath, List<String> targetMethods, boolean isDistinct) {
+        this.config = new SlicerConfig(scope);
+        this.javaPath = javaPath;
+        this.targetMethods = targetMethods;
+        this.isDistinct = isDistinct;
+    }
+
     public Slicer(SlicerConfig config, String javaPath) {
         this.config = config;
         this.javaPath = javaPath;
+    }
+
+    public Slicer(SlicerConfig config, String javaPath, boolean isDistinct) {
+        this.config = config;
+        this.javaPath = javaPath;
+        this.isDistinct = isDistinct;
     }
 
     public Slicer(SlicerConfig config, String javaPath, List<String> targetMethods) {
@@ -64,9 +86,15 @@ public class Slicer implements SliceService {
         this.targetMethods = targetMethods;
     }
 
+    public Slicer(SlicerConfig config, String javaPath, List<String> targetMethods, boolean isDistinct) {
+        this.config = config;
+        this.javaPath = javaPath;
+        this.targetMethods = targetMethods;
+        this.isDistinct = isDistinct;
+    }
 
     // TODO: To private
-    public AtomTestCase backwardSliceOne(Statement seed, String atsName) {
+    public AtomTestCase backwardSliceOne(Statement seed) {
         Collection slice = null;
         try {
             slice = com.ibm.wala.ipa.slicer.Slicer.computeBackwardSlice(
@@ -96,8 +124,12 @@ public class Slicer implements SliceService {
             System.out.println("Warning: In backwardSliceOne, null source lines.");
             return null;
         }
-        AtomTestCase atc = new AtomTestCase(atsName, srcLines);
+
+        AtomTestCase atc = new AtomTestCase("", srcLines);
+        SlicerUtil.refineAtomTestCase(atc);
         return atc;
+        /*List<String> toTrim = srcLines.stream().map(String::trim).collect(Collectors.toList());
+        return new AtomTestCase(atsName, toTrim);*/
     }
 
     private String getAtcName() {
@@ -118,15 +150,19 @@ public class Slicer implements SliceService {
                 this.targetMethods
         );
 
-        String atsName = getAtcName();
-        int cnt = 0;
         for (Statement seed : seeds) {
-            atomTestCases.add(backwardSliceOne(seed, atsName + cnt));
-            cnt++;
+            atomTestCases.add(backwardSliceOne(seed));
         }
 
-        //TODO: filter ats results.
-
+        // distinct
+        int cnt = 0;
+        if(isDistinct) {
+            atomTestCases = atomTestCases.stream().distinct().collect(Collectors.toList());
+        }
+        for (AtomTestCase atomTestCase : atomTestCases) {
+            atomTestCase.setName(getAtcName() + String.valueOf(cnt));
+            cnt++;
+        }
         return atomTestCases;
     }
 
@@ -165,5 +201,13 @@ public class Slicer implements SliceService {
 
     public void setJavaPath(String javaPath) {
         this.javaPath = javaPath;
+    }
+
+    public boolean isDistinct() {
+        return isDistinct;
+    }
+
+    public void setDistinct(boolean distinct) {
+        isDistinct = distinct;
     }
 }
