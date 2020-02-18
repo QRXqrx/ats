@@ -126,7 +126,7 @@ public class Slicer implements SliceService {
         }
 
         AtomTestCase atc = new AtomTestCase("", srcLines);
-        SlicerUtil.refineAtomTestCase(atc);
+        SlicerUtil.excludeExtraAssert(atc);
         return atc;
         /*List<String> toTrim = srcLines.stream().map(String::trim).collect(Collectors.toList());
         return new AtomTestCase(atsName, toTrim);*/

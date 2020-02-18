@@ -33,9 +33,12 @@ public class SlicerUtil {
     private SlicerUtil() { }
 
     /**
+     * Make sure every Atom Test Case contains only one assert statement.
+     * TODO: Has defect: This method may exclude useful statement, or make statement incomplete
+     *
      * @param atomTestCase needs refinement.
      */
-    public static void refineAtomTestCase(AtomTestCase atomTestCase) {
+    public static void excludeExtraAssert(AtomTestCase atomTestCase) {
         List<String> srcLines = atomTestCase.getSourceCodeLines();
         List<String> deleteLines = new ArrayList<>();
         int cnt = 1;
@@ -47,7 +50,10 @@ public class SlicerUtil {
             }
             cnt++;
         }
-        srcLines.removeAll(deleteLines);
+        for (String deleteLine : deleteLines) {
+            srcLines.remove(deleteLine);
+        }
+
     }
 
     /**
