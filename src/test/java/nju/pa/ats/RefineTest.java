@@ -24,6 +24,19 @@ public class RefineTest {
     String javaPathAstar = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/AStar/src/test/java/net/mooctest/AStarTest.java";
     String classDirAstar = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/AStar/target/test-classes";
 
+
+    @Test
+    public void test8() {
+        List<String> list = new ArrayList<>();
+        list.add("123");
+        list.add("456");
+        list.add("178");
+        list.add("123");
+        System.out.println(list);
+        list.remove("123");
+        System.out.println(list);
+    }
+
     @Test
     public void test7() throws IOException {
         AnalysisScope scope = SlicerUtil.getDynamicScope(classDirAstar, this.getClass().getClassLoader());

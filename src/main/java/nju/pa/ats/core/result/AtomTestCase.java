@@ -41,7 +41,8 @@ public class AtomTestCase extends AtomCodeSnippet{
         final String LINE_SEPARATOR = System.lineSeparator();
 
         StringBuilder result = new StringBuilder();
-        result.append("@Test").append(LINE_SEPARATOR);
+//        result.append("@Test").append(LINE_SEPARATOR);
+        result.append("@org.junit.Test(timeout = 4000)").append(LINE_SEPARATOR);
         result.append("public void test").append(getName()).append("() {").append(LINE_SEPARATOR);
         // TODO: sourceCodeLines may contain "public void methodName".
         getSourceCodeLines().forEach((line) -> result.append(line).append(LINE_SEPARATOR));

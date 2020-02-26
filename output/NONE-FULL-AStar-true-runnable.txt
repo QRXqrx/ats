@@ -1,11 +1,11 @@
-@Test
+@org.junit.Test(timeout = 4000)
 public void testAStarTest0() {
         net.mooctest.Graph<java.lang.Integer> graph0 = new net.mooctest.Graph<java.lang.Integer>();
         net.mooctest.Graph.TYPE graph_TYPE0 = graph0.getType();
         org.junit.Assert.assertEquals(net.mooctest.Graph.TYPE.UNDIRECTED, graph_TYPE0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest1() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -15,8 +15,8 @@ public void testAStarTest1() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest2() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -26,8 +26,8 @@ public void testAStarTest2() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals(1, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest3() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -37,8 +37,8 @@ public void testAStarTest3() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals((-1361), graph_Edge1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest4() {
         final UndirectedGraph undirected = new UndirectedGraph();
         final Graph.Vertex<Integer> start = undirected.v1;
@@ -48,56 +48,56 @@ public void testAStarTest4() {
             final List<Graph.Edge<Integer>> ideal = getIdealUndirectedPath(undirected).get(end).getPath();
             assertTrue("A* path error. path=" + path + " idealPathPair=" + ideal, path.equals(ideal));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest5() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         boolean boolean0 = graph_CostVertexPair0.equals("");
         org.junit.Assert.assertEquals(2124, graph_CostVertexPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest6() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         boolean boolean0 = graph_CostVertexPair0.equals("");
         org.junit.Assert.assertEquals(0, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest7() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         boolean boolean0 = graph_CostVertexPair0.equals("");
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest8() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest9() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals(2124, graph_CostVertexPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest10() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals(0, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest11() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -106,8 +106,8 @@ public void testAStarTest11() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex0);
         org.junit.Assert.assertEquals(2874, graph_Edge1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest12() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -116,8 +116,8 @@ public void testAStarTest12() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex0);
         org.junit.Assert.assertNotNull(graph_Edge1);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest13() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -126,8 +126,8 @@ public void testAStarTest13() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex0);
         org.junit.Assert.assertEquals(2363, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest14() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -135,8 +135,8 @@ public void testAStarTest14() {
         graph_Vertex0.addEdge(graph_Edge0);
         org.junit.Assert.assertEquals(2363, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest15() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -145,8 +145,8 @@ public void testAStarTest15() {
         boolean boolean0 = graph_Vertex0.pathTo(graph_Vertex0);
         org.junit.Assert.assertTrue(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest16() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -155,29 +155,29 @@ public void testAStarTest16() {
         boolean boolean0 = graph_Vertex0.pathTo(graph_Vertex0);
         org.junit.Assert.assertEquals(2363, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest17() {
         assertEquals(out, (systemOutRule.getLog()));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest18() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>(") ", 3838);
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>(2518, graph_Vertex0, graph_Vertex0);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = graph_Edge0.getFromVertex();
         org.junit.Assert.assertEquals(3838, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest19() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>(") ", 3838);
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>(2518, graph_Vertex0, graph_Vertex0);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = graph_Edge0.getFromVertex();
         org.junit.Assert.assertEquals(2518, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest20() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
@@ -189,15 +189,15 @@ public void testAStarTest20() {
         int int0 = aStar0.distanceBetween(graph_Vertex1, graph_Vertex2);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest21() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>(graph_TYPE0);
         java.lang.String string0 = graph0.toString();
         org.junit.Assert.assertEquals("", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest22() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.Integer>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         org.evosuite.shaded.org.mockito.Mockito.doReturn(0, 0).when(graph_Vertex0).compareTo(org.evosuite.shaded.org.mockito.ArgumentMatchers.nullable(net.mooctest.Graph.Vertex.class));
@@ -206,55 +206,52 @@ public void testAStarTest22() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest23() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
         assertEquals(0, graph.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest24() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
         assertTrue(graph.equals(graph));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest25() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
+        assertEquals("Value=1 weight=0\n" + "\t[ 1(0) ] -> [ 2(0) ] = 7\n" + "\t[ 1(0) ] -> [ 3(0) ] = 9\n" + "\t[ 1(0) ] -> [ 6(0) ] = 14\n" + "\t[ 1(0) ] -> [ 8(0) ] = 30\n" + "Value=2 weight=0\n" + "\t[ 2(0) ] -> [ 3(0) ] = 10\n" + "\t[ 2(0) ] -> [ 4(0) ] = 15\n" + "Value=3 weight=0\n" + "\t[ 3(0) ] -> [ 4(0) ] = 11\n" + "\t[ 3(0) ] -> [ 6(0) ] = 2\n" + "Value=4 weight=0\n" + "\t[ 4(0) ] -> [ 5(0) ] = 6\n" + "\t[ 4(0) ] -> [ 7(0) ] = 16\n" + "Value=5 weight=0\n" + "Value=6 weight=0\n" + "\t[ 6(0) ] -> [ 5(0) ] = 9\n" + "\t[ 6(0) ] -> [ 8(0) ] = 14\n" + "Value=7 weight=0\n" + "Value=8 weight=0\n", graph.toString());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest26() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         assertFalse(graph2.equals(graph));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest27() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
         assertFalse(graph2.equals(graph));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest28() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -264,12 +261,11 @@ public void testAStarTest28() {
         graph2.getVertices().add(new Vertex<>(2333));
         assertFalse(graph2.equals(graph));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest29() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -282,12 +278,11 @@ public void testAStarTest29() {
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
         assertFalse(graph2.equals(graph));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest30() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -304,12 +299,11 @@ public void testAStarTest30() {
         graph2 = new Graph<>(TYPE.DIRECTED, graph.getVertices(), edges);
         assertEquals(24, graph2.getEdges().size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest31() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -331,12 +325,11 @@ public void testAStarTest31() {
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         assertEquals(-1, vertex.compareTo(vertex1));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest32() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -358,12 +351,11 @@ public void testAStarTest32() {
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         assertEquals(1, vertex1.compareTo(vertex));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest33() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -387,12 +379,11 @@ public void testAStarTest33() {
         vertex1 = new Vertex<>(13);
         assertTrue(edge.equals(edge));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest34() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -416,12 +407,11 @@ public void testAStarTest34() {
         vertex1 = new Vertex<>(13);
         assertTrue(!edge.equals(null));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest35() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -446,12 +436,11 @@ public void testAStarTest35() {
         Edge<Integer> edge2 = new Edge<>(1, vertex1, vertex);
         assertFalse(edge2.equals(edge));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest36() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -478,12 +467,11 @@ public void testAStarTest36() {
         edge = new Edge<>(1, vertex1, vertex);
         assertFalse(edge2.equals(edge));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest37() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -512,12 +500,11 @@ public void testAStarTest37() {
         edge = new Edge<>(1, vertex, vertex);
         assertFalse(edge2.equals(edge));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest38() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -548,12 +535,11 @@ public void testAStarTest38() {
         edge = new Edge<>(1, vertex, vertex);
         assertEquals(1, edge2.compareTo(edge));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest39() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -589,12 +575,11 @@ public void testAStarTest39() {
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         assertFalse(vertex.equals(vertex1));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest40() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -631,12 +616,11 @@ public void testAStarTest40() {
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
         assertEquals(100440, pathpair.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest41() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -673,12 +657,11 @@ public void testAStarTest41() {
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
         assertTrue(pathpair.equals(pathpair));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest42() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -713,14 +696,13 @@ public void testAStarTest42() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
+        assertEquals("Cost = 20\n" + "\t[ 1(0) ] -> [ 3(0) ] = 9\n" + "\t[ 3(0) ] -> [ 6(0) ] = 2\n" + "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest43() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -755,17 +737,15 @@ public void testAStarTest43() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         assertTrue(!pathpair1.equals(pathpair));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest44() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -800,7 +780,6 @@ public void testAStarTest44() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -812,12 +791,11 @@ public void testAStarTest44() {
         CostPathPair<Integer> costPair1 = new CostPathPair<Integer>(123, path1);
         assertFalse(costPair.equals(costPair1));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest45() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -852,7 +830,6 @@ public void testAStarTest45() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -865,12 +842,11 @@ public void testAStarTest45() {
         CostVertexPair<Integer> costVert = new CostVertexPair<Integer>(2, new Vertex<Integer>(2));
         assertFalse(costVert.equals(null));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest46() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -905,7 +881,6 @@ public void testAStarTest46() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -918,12 +893,11 @@ public void testAStarTest46() {
         CostVertexPair<Integer> costVert = new CostVertexPair<Integer>(2, new Vertex<Integer>(2));
         assertFalse(costVert.equals(new CostVertexPair<Integer>(3, new Vertex<Integer>(3))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest47() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -958,7 +932,6 @@ public void testAStarTest47() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -971,12 +944,11 @@ public void testAStarTest47() {
         CostVertexPair<Integer> costVert = new CostVertexPair<Integer>(2, new Vertex<Integer>(2));
         assertFalse(costVert.equals(new CostVertexPair<Integer>(2, new Vertex<Integer>(3))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest48() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1011,7 +983,6 @@ public void testAStarTest48() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1024,12 +995,11 @@ public void testAStarTest48() {
         CostVertexPair<Integer> costVert = new CostVertexPair<Integer>(2, new Vertex<Integer>(2));
         assertTrue(costVert.equals(costVert));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest49() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1064,7 +1034,6 @@ public void testAStarTest49() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1077,12 +1046,11 @@ public void testAStarTest49() {
         CostVertexPair<Integer> costVert = new CostVertexPair<Integer>(2, new Vertex<Integer>(2));
         assertEquals(3844, costVert.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest50() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1117,7 +1085,6 @@ public void testAStarTest50() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1131,12 +1098,11 @@ public void testAStarTest50() {
             costVert = new CostVertexPair<Integer>(2, null);
             assertFalse(costVert.equals(null));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest51() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1171,7 +1137,6 @@ public void testAStarTest51() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1185,12 +1150,11 @@ public void testAStarTest51() {
             costVert = new CostVertexPair<Integer>(2, null);
             assertEquals(3844, costVert.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest52() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1225,7 +1189,6 @@ public void testAStarTest52() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1240,12 +1203,11 @@ public void testAStarTest52() {
             fail();
             assertEquals("vertex cannot be NULL.", e.getMessage());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest53() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1280,7 +1242,6 @@ public void testAStarTest53() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1298,12 +1259,11 @@ public void testAStarTest53() {
         vertexField.set(costVert, null);
         assertEquals(62, costVert.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest54() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1338,7 +1298,6 @@ public void testAStarTest54() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1357,12 +1316,11 @@ public void testAStarTest54() {
         graph = new Graph<>(TYPE.UNDIRECTED, new ArrayList<>(), directedGraph.edges);
         assertEquals(12, graph.getEdges().size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest55() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1397,7 +1355,6 @@ public void testAStarTest55() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1417,12 +1374,11 @@ public void testAStarTest55() {
         graph = new Graph<>(TYPE.UNDIRECTED, new UndirectedGraph().verticies, new UndirectedGraph().edges);
         assertEquals(14, graph.getEdges().size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest56() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1457,7 +1413,6 @@ public void testAStarTest56() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1479,12 +1434,11 @@ public void testAStarTest56() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         assertEquals(2, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest57() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1519,7 +1473,6 @@ public void testAStarTest57() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1541,12 +1494,11 @@ public void testAStarTest57() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         assertEquals(2, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest58() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1581,7 +1533,6 @@ public void testAStarTest58() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1604,12 +1555,11 @@ public void testAStarTest58() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
         assertEquals(2, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest59() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1644,7 +1594,6 @@ public void testAStarTest59() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1667,12 +1616,11 @@ public void testAStarTest59() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
         assertEquals(2, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest60() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1707,7 +1655,6 @@ public void testAStarTest60() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1731,12 +1678,11 @@ public void testAStarTest60() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v1, new DirectedGraph().v7);
         assertEquals(3, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest61() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1771,7 +1717,6 @@ public void testAStarTest61() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1795,12 +1740,11 @@ public void testAStarTest61() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v1, new DirectedGraph().v7);
         assertEquals(9, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest62() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1835,7 +1779,6 @@ public void testAStarTest62() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1866,12 +1809,11 @@ public void testAStarTest62() {
         vertex.addEdge(new Edge<Integer>(4, vertex, vertex));
         assertEquals(186, vertex.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest63() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1906,7 +1848,6 @@ public void testAStarTest63() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -1938,12 +1879,11 @@ public void testAStarTest63() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v5, new DirectedGraph().v8);
         assertNull(edges);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest64() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -1978,7 +1918,6 @@ public void testAStarTest64() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2011,12 +1950,11 @@ public void testAStarTest64() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v2, new DirectedGraph().v6);
         assertEquals(2, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest65() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2051,7 +1989,6 @@ public void testAStarTest65() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2084,12 +2021,11 @@ public void testAStarTest65() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v2, new DirectedGraph().v6);
         assertEquals(10, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest66() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2124,7 +2060,6 @@ public void testAStarTest66() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2158,12 +2093,11 @@ public void testAStarTest66() {
         edge = new Edge<Integer>(3, new Vertex<Integer>(4), new Vertex<>(5));
         assertEquals(1787460, edge.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest67() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2198,7 +2132,6 @@ public void testAStarTest67() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2235,12 +2168,11 @@ public void testAStarTest67() {
         graph.getVertices().add(new Vertex<Integer>(4));
         assertEquals(0, graph.getEdges().get(0).hashCode() * graph.getVertices().get(0).hashCode() * (graph.getVertices().size() + graph.getEdges().size() + graph.getType().hashCode()) * 31 - graph.hashCode());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest68() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2275,7 +2207,6 @@ public void testAStarTest68() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2314,12 +2245,11 @@ public void testAStarTest68() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new UndirectedGraph().v5);
         assertNull(edges);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest69() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2354,7 +2284,6 @@ public void testAStarTest69() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2395,12 +2324,11 @@ public void testAStarTest69() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         assertEquals(4, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest70() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2435,7 +2363,6 @@ public void testAStarTest70() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2476,12 +2403,11 @@ public void testAStarTest70() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         assertEquals(1, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest71() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2516,7 +2442,6 @@ public void testAStarTest71() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2559,12 +2484,11 @@ public void testAStarTest71() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         assertEquals(1, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest72() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2599,7 +2523,6 @@ public void testAStarTest72() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2642,12 +2565,11 @@ public void testAStarTest72() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         assertEquals(1, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest73() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2682,7 +2604,6 @@ public void testAStarTest73() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2727,12 +2648,11 @@ public void testAStarTest73() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         assertEquals(2, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest74() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2767,7 +2687,6 @@ public void testAStarTest74() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2812,12 +2731,11 @@ public void testAStarTest74() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         assertEquals(2, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest75() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2852,7 +2770,6 @@ public void testAStarTest75() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2899,12 +2816,11 @@ public void testAStarTest75() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
         assertEquals(2, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest76() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -2939,7 +2855,6 @@ public void testAStarTest76() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -2986,12 +2901,11 @@ public void testAStarTest76() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
         assertEquals(9, edges.get(0).getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest77() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -3026,7 +2940,6 @@ public void testAStarTest77() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -3075,12 +2988,11 @@ public void testAStarTest77() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
         assertEquals(0, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest78() {
         DirectedGraph directedGraph = new DirectedGraph();
         Graph<Integer> graph = directedGraph.graph;
-                "Value=8 weight=0\n", graph.toString());
         Graph<Integer> graph2 = new Graph<Integer>(graph);
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
@@ -3115,7 +3027,6 @@ public void testAStarTest78() {
         vertex.getEdges().add(edge);
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         CostPathPair<Integer> pathpair = getIdealPathPair(directedGraph);
-                "\t[ 6(0) ] -> [ 5(0) ] = 9\n", pathpair.toString());
         CostPathPair<Integer> pathpair1 = getIdealPathPair(directedGraph);
         pathpair1.setCost(-10000);
         pathpair1 = getIdealPathPair(directedGraph);
@@ -3166,8 +3077,8 @@ public void testAStarTest78() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
         assertEquals(0, edges.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest79() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Vertex<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Vertex<java.lang.String>>) (graph0.getVertices()));
@@ -3175,40 +3086,40 @@ public void testAStarTest79() {
         net.mooctest.Graph<java.lang.String> graph1 = new net.mooctest.Graph<java.lang.String>(list0, list1);
         org.junit.Assert.assertTrue(graph1.equals(((java.lang.Object) (graph0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest80() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("Mrx\nS3M^=F7#ei", (-1032));
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-14), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest81() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("Mrx\nS3M^=F7#ei", (-1032));
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-1032), graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest82() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("Mrx\nS3M^=F7#ei", (-1032));
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest83() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         int int0 = aStar0.distanceBetween(graph_Vertex0, graph_Vertex0);
         org.junit.Assert.assertEquals((-2526), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest84() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3218,8 +3129,8 @@ public void testAStarTest84() {
         int int0 = graph_Edge1.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals((-1), graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest85() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3229,8 +3140,8 @@ public void testAStarTest85() {
         int int0 = graph_Edge1.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest86() {
         java.lang.Integer integer0 = new java.lang.Integer(783);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 783);
@@ -3238,8 +3149,8 @@ public void testAStarTest86() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(799, graph_Vertex0, graph_Vertex1);
         org.junit.Assert.assertEquals(799, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest87() {
         java.lang.Integer integer0 = new java.lang.Integer(783);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 783);
@@ -3247,15 +3158,15 @@ public void testAStarTest87() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(799, graph_Vertex0, graph_Vertex1);
         org.junit.Assert.assertEquals((-1881), graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest88() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         net.mooctest.Graph<java.lang.String> graph1 = new net.mooctest.Graph<java.lang.String>(graph0);
         org.junit.Assert.assertTrue(graph1.equals(((java.lang.Object) (graph0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest89() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
@@ -3264,8 +3175,8 @@ public void testAStarTest89() {
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest90() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
@@ -3274,8 +3185,8 @@ public void testAStarTest90() {
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair1);
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest91() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>(2124, graph_Vertex0);
@@ -3284,8 +3195,8 @@ public void testAStarTest91() {
         int int0 = graph_CostVertexPair0.compareTo(graph_CostVertexPair1);
         org.junit.Assert.assertEquals(java.lang.Integer.MAX_VALUE, graph_CostVertexPair1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest92() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3293,8 +3204,8 @@ public void testAStarTest92() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(2363, graph_Vertex1, graph_Vertex1);
         org.junit.Assert.assertFalse(graph_Vertex1.equals(((java.lang.Object) (graph_Vertex0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest93() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3303,8 +3214,8 @@ public void testAStarTest93() {
         graph_Vertex0.addEdge(graph_Edge0);
         org.junit.Assert.assertEquals(2363, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest94() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3315,8 +3226,8 @@ public void testAStarTest94() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex2);
         org.junit.Assert.assertEquals(2363, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest95() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3327,8 +3238,8 @@ public void testAStarTest95() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex2);
         org.junit.Assert.assertEquals(0, graph_Vertex2.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest96() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3339,8 +3250,8 @@ public void testAStarTest96() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex2);
         org.junit.Assert.assertNull(graph_Edge1);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest97() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3348,8 +3259,8 @@ public void testAStarTest97() {
         graph_Vertex0.addEdge(graph_Edge0);
         org.junit.Assert.assertEquals(2363, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest98() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3359,8 +3270,8 @@ public void testAStarTest98() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest99() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3370,8 +3281,8 @@ public void testAStarTest99() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertNull(graph_Edge1);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest100() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3381,15 +3292,15 @@ public void testAStarTest100() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertEquals(2363, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest101() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>(graph_TYPE0);
         boolean boolean0 = graph0.equals(((java.lang.Object) (null)));
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest102() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-895), graph_Vertex0, graph_Vertex0);
@@ -3397,16 +3308,16 @@ public void testAStarTest102() {
         java.lang.String string0 = graph_Vertex0.toString();
         org.junit.Assert.assertEquals("Value= weight=0\n\t[ (0) ] -> [ (0) ] = -895\n", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest103() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         net.mooctest.Graph<java.lang.Integer> graph1 = new net.mooctest.Graph<java.lang.Integer>();
         boolean boolean0 = graph0.equals(graph1);
         org.junit.Assert.assertTrue(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest104() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -3416,8 +3327,8 @@ public void testAStarTest104() {
         graph_Vertex2.addEdge(graph_Edge1);
         org.junit.Assert.assertEquals((-4095), graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest105() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -3428,8 +3339,8 @@ public void testAStarTest105() {
         int int0 = graph_Vertex1.compareTo(graph_Vertex2);
         org.junit.Assert.assertEquals((-4095), graph_Vertex2.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest106() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -3440,16 +3351,16 @@ public void testAStarTest106() {
         int int0 = graph_Vertex1.compareTo(graph_Vertex2);
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest107() {
         net.mooctest.Graph<java.lang.Integer> graph0 = new net.mooctest.Graph<java.lang.Integer>(graph_TYPE0);
         net.mooctest.Graph<java.lang.Integer> graph1 = new net.mooctest.Graph<java.lang.Integer>();
         boolean boolean0 = graph1.equals(graph0);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest108() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -3458,8 +3369,8 @@ public void testAStarTest108() {
         boolean boolean0 = graph_CostPathPair0.equals(object0);
         org.junit.Assert.assertEquals((-2879), graph_CostPathPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest109() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -3468,31 +3379,31 @@ public void testAStarTest109() {
         boolean boolean0 = graph_CostPathPair0.equals(object0);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest110() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("UK4slV]YrZ' jXMmb");
         int int0 = graph_Vertex0.getWeight();
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest111() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-2761));
         boolean boolean0 = graph_Vertex0.equals(((java.lang.Object) (null)));
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest112() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-2761));
         boolean boolean0 = graph_Vertex0.equals(((java.lang.Object) (null)));
         org.junit.Assert.assertEquals((-2761), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest113() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
@@ -3500,8 +3411,8 @@ public void testAStarTest113() {
         int int0 = graph_CostVertexPair1.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals(2363, graph_CostVertexPair1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest114() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
@@ -3509,8 +3420,8 @@ public void testAStarTest114() {
         int int0 = graph_CostVertexPair1.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest115() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
@@ -3518,32 +3429,32 @@ public void testAStarTest115() {
         int int0 = graph_CostVertexPair1.compareTo(graph_CostVertexPair0);
         org.junit.Assert.assertEquals((-1), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest116() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("(", 928);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest117() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("(", 928);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest118() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("(", 928);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(928, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest119() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3552,8 +3463,8 @@ public void testAStarTest119() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = new net.mooctest.Graph.Edge<java.lang.Integer>(2363, graph_Vertex1, graph_Vertex1);
         org.junit.Assert.assertTrue(graph_Edge1.equals(((java.lang.Object) (graph_Edge0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest120() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3564,16 +3475,16 @@ public void testAStarTest120() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest121() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         java.lang.String string0 = graph_CostVertexPair0.toString();
         org.junit.Assert.assertEquals("9c3o$8-?g| (-1)  cost=-1\n", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest122() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.Integer>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         org.evosuite.shaded.org.mockito.Mockito.doReturn((-442)).when(graph_Vertex0).compareTo(org.evosuite.shaded.org.mockito.ArgumentMatchers.nullable(net.mooctest.Graph.Vertex.class));
@@ -3581,8 +3492,8 @@ public void testAStarTest122() {
         int int0 = graph_Edge0.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals(2, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest123() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.Integer>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         org.evosuite.shaded.org.mockito.Mockito.doReturn((-442)).when(graph_Vertex0).compareTo(org.evosuite.shaded.org.mockito.ArgumentMatchers.nullable(net.mooctest.Graph.Vertex.class));
@@ -3590,8 +3501,8 @@ public void testAStarTest123() {
         int int0 = graph_Edge0.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals((-442), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest124() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.Integer>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(16, graph_Vertex0, graph_Vertex0);
@@ -3599,8 +3510,8 @@ public void testAStarTest124() {
         boolean boolean0 = graph_Edge1.equals(graph_Edge0);
         org.junit.Assert.assertTrue(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest125() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3608,8 +3519,8 @@ public void testAStarTest125() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex1 = graph_Edge0.getToVertex();
         org.junit.Assert.assertEquals(2363, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest126() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3617,8 +3528,8 @@ public void testAStarTest126() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex1 = graph_Edge0.getToVertex();
         org.junit.Assert.assertEquals(2363, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest127() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3626,8 +3537,8 @@ public void testAStarTest127() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(2363, graph_Vertex1, graph_Vertex1);
         org.junit.Assert.assertTrue(graph_Vertex1.equals(((java.lang.Object) (graph_Vertex0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest128() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3637,8 +3548,8 @@ public void testAStarTest128() {
         boolean boolean0 = graph_Vertex0.pathTo(graph_Vertex0);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest129() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -3649,8 +3560,8 @@ public void testAStarTest129() {
         graph_Vertex1.addEdge(graph_Edge2);
         org.junit.Assert.assertFalse(graph_Vertex2.equals(((java.lang.Object) (graph_Vertex1))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest130() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -3663,8 +3574,8 @@ public void testAStarTest130() {
         graph_Vertex1.getEdge(graph_Vertex2);
         org.junit.Assert.assertTrue(graph_Vertex2.equals(((java.lang.Object) (graph_Vertex1))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest131() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("g~");
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-2568), graph_Vertex0, graph_Vertex0);
@@ -3674,32 +3585,32 @@ public void testAStarTest131() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, ((net.mooctest.Graph.Vertex<java.lang.String>) (null)))));
         org.junit.Assert.assertNull(list0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest132() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-27));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>(graph_Vertex0);
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertTrue(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest133() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-2761));
         graph_Vertex0.setWeight(2370);
         org.junit.Assert.assertEquals(2370, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest134() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         graph_CostVertexPair0.setCost((-1361));
         org.junit.Assert.assertEquals((-1361), graph_CostVertexPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest135() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3708,8 +3619,8 @@ public void testAStarTest135() {
         java.lang.String string0 = graph_Vertex0.toString();
         org.junit.Assert.assertEquals("Value=0 weight=2363\n\t[ 0(2363) ] -> [ 0(2363) ] = 2874\n", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest136() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("a", (-943));
@@ -3723,8 +3634,8 @@ public void testAStarTest136() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertNotNull(list0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest137() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("a", (-943));
@@ -3738,8 +3649,8 @@ public void testAStarTest137() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertEquals(1, list0.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest138() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("a", (-943));
@@ -3748,8 +3659,8 @@ public void testAStarTest138() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertFalse(list0.isEmpty());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest139() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Vertex<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Vertex<java.lang.String>>) (graph0.getVertices()));
@@ -3757,8 +3668,8 @@ public void testAStarTest139() {
         net.mooctest.Graph<java.lang.String> graph1 = new net.mooctest.Graph<java.lang.String>(graph_TYPE0, list0, list1);
         org.junit.Assert.assertEquals(net.mooctest.Graph.TYPE.DIRECTED, graph1.getType());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest140() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-27));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>(graph_Vertex0);
@@ -3766,8 +3677,8 @@ public void testAStarTest140() {
         graph_Vertex0.addEdge(graph_Edge0);
         org.junit.Assert.assertEquals((-27), graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest141() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-27));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>(graph_Vertex0);
@@ -3776,8 +3687,8 @@ public void testAStarTest141() {
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertEquals((-27), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest142() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-27));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>(graph_Vertex0);
@@ -3786,8 +3697,8 @@ public void testAStarTest142() {
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest143() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3796,8 +3707,8 @@ public void testAStarTest143() {
         int int0 = graph_Edge0.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest144() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3806,8 +3717,8 @@ public void testAStarTest144() {
         int int0 = graph_Edge0.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals(2363, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest145() {
         java.lang.Integer integer0 = new java.lang.Integer((-1));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -3816,8 +3727,8 @@ public void testAStarTest145() {
         int int0 = graph_Edge0.compareTo(graph_Edge0);
         org.junit.Assert.assertEquals(2363, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest146() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-895), graph_Vertex0, graph_Vertex0);
@@ -3825,8 +3736,8 @@ public void testAStarTest146() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals(0, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest147() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-895), graph_Vertex0, graph_Vertex0);
@@ -3834,8 +3745,8 @@ public void testAStarTest147() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest148() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("");
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-895), graph_Vertex0, graph_Vertex0);
@@ -3843,8 +3754,8 @@ public void testAStarTest148() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals((-1460), graph_Edge1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest149() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -3852,48 +3763,48 @@ public void testAStarTest149() {
         java.lang.String string0 = graph_CostPathPair0.toString();
         org.junit.Assert.assertEquals("Cost = 2155\n", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest150() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         int int0 = graph_CostVertexPair0.getCost();
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest151() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         int int0 = graph_CostVertexPair0.getCost();
         org.junit.Assert.assertEquals((-1), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest152() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         int int0 = aStar0.distanceBetween(graph_Vertex0, graph_Vertex0);
         org.junit.Assert.assertEquals(java.lang.Integer.MAX_VALUE, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest153() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = graph_CostVertexPair0.getVertex();
         org.junit.Assert.assertEquals((-1), graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest154() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.CostVertexPair<java.lang.String> graph_CostVertexPair0 = new net.mooctest.Graph.CostVertexPair<java.lang.String>((-1), graph_Vertex0);
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = graph_CostVertexPair0.getVertex();
         org.junit.Assert.assertEquals((-1), graph_CostVertexPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest155() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("a", (-2536));
@@ -3907,8 +3818,8 @@ public void testAStarTest155() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertEquals(1, list0.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest156() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("a", (-2536));
@@ -3922,8 +3833,8 @@ public void testAStarTest156() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertNotNull(list0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest157() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
@@ -3937,8 +3848,8 @@ public void testAStarTest157() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertNotNull(list0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest158() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
@@ -3952,8 +3863,8 @@ public void testAStarTest158() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex1)));
         org.junit.Assert.assertEquals(2, list0.size());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest159() {
         java.lang.Integer integer0 = new java.lang.Integer(2155);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 0);
@@ -3961,8 +3872,8 @@ public void testAStarTest159() {
         graph_Vertex1.getEdges();
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest160() {
         final DirectedGraph directed = new DirectedGraph();
         final Graph.Vertex<Integer> start = directed.v1;
@@ -3972,40 +3883,40 @@ public void testAStarTest160() {
             final List<Graph.Edge<Integer>> ideal = getIdealDirectedPath(directed).get(end).getPath();
             assertTrue("A* path error. path=" + path + " idealPathPair=" + ideal, path.equals(ideal));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest161() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex1.compareTo(graph_Vertex0);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest162() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex1.compareTo(graph_Vertex0);
         org.junit.Assert.assertEquals((-1), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest163() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex1.compareTo(graph_Vertex0);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest164() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-2763));
         int int0 = aStar0.heuristicCostEstimate(graph_Vertex0, graph_Vertex0);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest165() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4018,8 +3929,8 @@ public void testAStarTest165() {
         int int0 = graph_Vertex1.compareTo(graph_Vertex2);
         org.junit.Assert.assertTrue(graph_Vertex1.equals(((java.lang.Object) (graph_Vertex2))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest166() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4032,8 +3943,8 @@ public void testAStarTest166() {
         int int0 = graph_Vertex1.compareTo(graph_Vertex2);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest167() {
         java.lang.Integer integer0 = new java.lang.Integer(2);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2);
@@ -4041,8 +3952,8 @@ public void testAStarTest167() {
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest168() {
         java.lang.Integer integer0 = new java.lang.Integer(2);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2);
@@ -4050,8 +3961,8 @@ public void testAStarTest168() {
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest169() {
         java.lang.Integer integer0 = new java.lang.Integer(2);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2);
@@ -4059,16 +3970,16 @@ public void testAStarTest169() {
         boolean boolean0 = graph_Vertex0.equals(graph_Vertex1);
         org.junit.Assert.assertEquals(2, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest170() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.Integer>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.Integer>(2, graph_Vertex0, graph_Vertex0);
         java.lang.String string0 = graph_Edge0.toString();
         org.junit.Assert.assertEquals("[ null(0) ] -> [ null(0) ] = 2\n", string0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest171() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -4076,8 +3987,8 @@ public void testAStarTest171() {
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.Integer>(graph_Vertex0);
         org.junit.Assert.assertTrue(graph_Vertex1.equals(((java.lang.Object) (graph_Vertex0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest172() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -4087,8 +3998,8 @@ public void testAStarTest172() {
         boolean boolean0 = graph_Vertex0.pathTo(graph_Vertex1);
         org.junit.Assert.assertFalse(graph_Vertex1.equals(((java.lang.Object) (graph_Vertex0))));
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest173() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -4098,8 +4009,8 @@ public void testAStarTest173() {
         boolean boolean0 = graph_Vertex0.pathTo(graph_Vertex1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest174() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -4107,8 +4018,8 @@ public void testAStarTest174() {
         int int0 = graph_CostPathPair0.getCost();
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest175() {
         net.mooctest.AStar<java.lang.String> aStar0 = new net.mooctest.AStar<java.lang.String>();
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("a");
@@ -4116,8 +4027,8 @@ public void testAStarTest175() {
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (aStar0.aStar(graph0, graph_Vertex0, graph_Vertex0)));
         org.junit.Assert.assertTrue(list0.isEmpty());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest176() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -4127,8 +4038,8 @@ public void testAStarTest176() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals((-1), graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest177() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2363);
@@ -4138,8 +4049,8 @@ public void testAStarTest177() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest178() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -4149,8 +4060,8 @@ public void testAStarTest178() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals(2874, graph_Edge1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest179() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -4160,8 +4071,8 @@ public void testAStarTest179() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest180() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-1), graph_Vertex0, graph_Vertex0);
@@ -4171,8 +4082,8 @@ public void testAStarTest180() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals(2363, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest181() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -4180,16 +4091,16 @@ public void testAStarTest181() {
         graph_CostPathPair0.getPath();
         org.junit.Assert.assertEquals((-1), graph_CostPathPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest182() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("", (-27));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>(graph_Vertex0);
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(0, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest183() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4198,8 +4109,8 @@ public void testAStarTest183() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals(2146, graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest184() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4208,8 +4119,8 @@ public void testAStarTest184() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest185() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4217,32 +4128,32 @@ public void testAStarTest185() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertTrue(boolean0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest186() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest187() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-1), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest188() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|", (-1));
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex1 = new net.mooctest.Graph.Vertex<java.lang.String>("9c3o$8-?g|");
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest189() {
         net.mooctest.Graph<java.lang.String> graph0 = new net.mooctest.Graph<java.lang.String>();
         java.util.List<net.mooctest.Graph.Edge<java.lang.String>> list0 = ((java.util.List<net.mooctest.Graph.Edge<java.lang.String>>) (graph0.getEdges()));
@@ -4250,8 +4161,8 @@ public void testAStarTest189() {
         graph_CostPathPair0.setCost(0);
         org.junit.Assert.assertEquals(0, graph_CostPathPair0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest190() {
         java.lang.Integer integer0 = new java.lang.Integer(897);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2294);
@@ -4260,8 +4171,8 @@ public void testAStarTest190() {
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(1, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest191() {
         java.lang.Integer integer0 = new java.lang.Integer(897);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 2294);
@@ -4270,8 +4181,8 @@ public void testAStarTest191() {
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(1, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest192() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0);
@@ -4280,8 +4191,8 @@ public void testAStarTest192() {
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest193() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0);
@@ -4290,8 +4201,8 @@ public void testAStarTest193() {
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-1), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest194() {
         java.lang.Integer integer0 = java.lang.Integer.getInteger(((java.lang.String) (null)), (-2761));
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0);
@@ -4300,8 +4211,8 @@ public void testAStarTest194() {
         int int0 = graph_Vertex0.compareTo(graph_Vertex1);
         org.junit.Assert.assertEquals((-2761), graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest195() {
         java.lang.Integer integer0 = new java.lang.Integer(783);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 783);
@@ -4309,8 +4220,8 @@ public void testAStarTest195() {
         int int0 = graph_Edge0.getCost();
         org.junit.Assert.assertEquals(783, graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest196() {
         java.lang.Integer integer0 = new java.lang.Integer(783);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, 783);
@@ -4318,8 +4229,8 @@ public void testAStarTest196() {
         int int0 = graph_Edge0.getCost();
         org.junit.Assert.assertEquals(799, int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest197() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-1361));
@@ -4327,8 +4238,8 @@ public void testAStarTest197() {
         graph_Vertex0.addEdge(graph_Edge0);
         org.junit.Assert.assertEquals((-1), graph_Edge0.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest198() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-1361));
@@ -4338,8 +4249,8 @@ public void testAStarTest198() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertNull(graph_Edge1);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest199() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-1361));
@@ -4349,8 +4260,8 @@ public void testAStarTest199() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertEquals(0, graph_Vertex1.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest200() {
         java.lang.Integer integer0 = new java.lang.Integer(0);
         net.mooctest.Graph.Vertex<java.lang.Integer> graph_Vertex0 = new net.mooctest.Graph.Vertex<java.lang.Integer>(integer0, (-1361));
@@ -4360,8 +4271,8 @@ public void testAStarTest200() {
         net.mooctest.Graph.Edge<java.lang.Integer> graph_Edge1 = graph_Vertex0.getEdge(graph_Vertex1);
         org.junit.Assert.assertEquals((-1361), graph_Vertex0.getWeight());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest201() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         org.evosuite.shaded.org.mockito.Mockito.doReturn((-1009), 21000).when(graph_Vertex0).compareTo(org.evosuite.shaded.org.mockito.ArgumentMatchers.nullable(net.mooctest.Graph.Vertex.class));
@@ -4370,8 +4281,8 @@ public void testAStarTest201() {
         int int0 = graph_Edge0.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals((-1009), int0);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest202() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         org.evosuite.shaded.org.mockito.Mockito.doReturn((-1009), 21000).when(graph_Vertex0).compareTo(org.evosuite.shaded.org.mockito.ArgumentMatchers.nullable(net.mooctest.Graph.Vertex.class));
@@ -4381,8 +4292,8 @@ public void testAStarTest202() {
         int int1 = graph_Edge1.compareTo(graph_Edge1);
         org.junit.Assert.assertEquals(21000, int1);
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest203() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4391,8 +4302,8 @@ public void testAStarTest203() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertEquals(2269, graph_Edge1.getCost());
 }
----------------------------------------------------
-@Test
+
+@org.junit.Test(timeout = 4000)
 public void testAStarTest204() {
         net.mooctest.Graph.Vertex<java.lang.String> graph_Vertex0 = ((net.mooctest.Graph.Vertex<java.lang.String>) (org.evosuite.shaded.org.mockito.Mockito.mock(net.mooctest.Graph.Vertex.class, new org.evosuite.runtime.ViolatedAssumptionAnswer())));
         net.mooctest.Graph.Edge<java.lang.String> graph_Edge0 = new net.mooctest.Graph.Edge<java.lang.String>((-4095), graph_Vertex0, graph_Vertex0);
@@ -4401,5 +4312,5 @@ public void testAStarTest204() {
         boolean boolean0 = graph_Edge0.equals(graph_Edge1);
         org.junit.Assert.assertFalse(boolean0);
 }
----------------------------------------------------
+
 

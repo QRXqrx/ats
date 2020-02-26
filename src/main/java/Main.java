@@ -110,7 +110,7 @@ public class Main {
         String absFilePath = outputDir + System.getProperty("file.separator") + outputFileName;
         StringBuilder contentBuilder = new StringBuilder();
         atomTestCases.forEach((atc) ->
-            contentBuilder.append(atc.dumpSnippet()).append("\n---------------------------------------------------\n")
+            contentBuilder.append(atc.dumpSnippet()).append("\n\n")
         );
         try {
             FileUtil.writeContentIntoFile(absFilePath, contentBuilder.toString());

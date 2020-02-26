@@ -632,6 +632,7 @@ public void testAStarTest69() {
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -643,6 +644,7 @@ public void testAStarTest70() {
         graph2.getVertices().add(new Vertex<>(2333));
         graph2 = new Graph<>(graph);
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -657,6 +659,7 @@ public void testAStarTest71() {
         graph2 = new Graph<Integer>(graph);
         graph2.getVertices().remove(0);
         graph2.getVertices().add(new Vertex<>(2333));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -671,6 +674,7 @@ public void testAStarTest72() {
         graph2 = new Graph<Integer>(graph);
         graph2.getVertices().remove(0);
         graph2.getVertices().add(new Vertex<>(2333));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -688,6 +692,7 @@ public void testAStarTest73() {
         graph2 = new Graph<>(graph);
         graph2.getEdges().remove(0);
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -705,6 +710,7 @@ public void testAStarTest74() {
         graph2 = new Graph<>(graph);
         graph2.getEdges().remove(0);
         graph2.getEdges().add(new Edge<Integer>(233, new Vertex<Integer>(1), new Vertex<Integer>(2)));
+        assertFalse(graph2.equals(graph));
 }
 ---------------------------------------------------
 @Test
@@ -1157,6 +1163,7 @@ public void testAStarTest91() {
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         vertex = new Vertex<>(12);
         vertex1 = new Vertex<>(13);
+        assertTrue(edge.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -1185,6 +1192,7 @@ public void testAStarTest92() {
         vertex1.getEdges().add(new Edge<>(2, vertex1, vertex));
         vertex = new Vertex<>(12);
         vertex1 = new Vertex<>(13);
+        assertTrue(edge.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -1276,6 +1284,7 @@ public void testAStarTest95() {
         Edge<Integer> edge2 = new Edge<>(1, vertex1, vertex);
         edge2 = new Edge<>(1, vertex, vertex1);
         edge = new Edge<>(1, vertex1, vertex);
+        assertFalse(edge2.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -1307,6 +1316,7 @@ public void testAStarTest96() {
         Edge<Integer> edge2 = new Edge<>(1, vertex1, vertex);
         edge2 = new Edge<>(1, vertex, vertex1);
         edge = new Edge<>(1, vertex1, vertex);
+        assertFalse(edge2.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -1340,6 +1350,7 @@ public void testAStarTest97() {
         edge = new Edge<>(1, vertex1, vertex);
         edge2 = new Edge<>(1, vertex, vertex1);
         edge = new Edge<>(1, vertex, vertex);
+        assertFalse(edge2.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -1373,6 +1384,7 @@ public void testAStarTest98() {
         edge = new Edge<>(1, vertex1, vertex);
         edge2 = new Edge<>(1, vertex, vertex1);
         edge = new Edge<>(1, vertex, vertex);
+        assertFalse(edge2.equals(edge));
 }
 ---------------------------------------------------
 @Test
@@ -4800,6 +4812,7 @@ public void testAStarTest163() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -4862,6 +4875,7 @@ public void testAStarTest164() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -4924,6 +4938,7 @@ public void testAStarTest165() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -4986,6 +5001,7 @@ public void testAStarTest166() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -5048,6 +5064,7 @@ public void testAStarTest167() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -5110,6 +5127,7 @@ public void testAStarTest168() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -5172,6 +5190,7 @@ public void testAStarTest169() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -5234,6 +5253,7 @@ public void testAStarTest170() {
         AStar<Integer> astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new DirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -6103,6 +6123,7 @@ public void testAStarTest183() {
         vertex.addEdge(new Edge<Integer>(4, vertex, vertex));
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v5, new DirectedGraph().v8);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v2, new DirectedGraph().v6);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -6175,6 +6196,7 @@ public void testAStarTest184() {
         vertex.addEdge(new Edge<Integer>(4, vertex, vertex));
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v5, new DirectedGraph().v8);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v2, new DirectedGraph().v6);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -6247,6 +6269,7 @@ public void testAStarTest185() {
         vertex.addEdge(new Edge<Integer>(4, vertex, vertex));
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v5, new DirectedGraph().v8);
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v2, new DirectedGraph().v6);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -8683,6 +8706,7 @@ public void testAStarTest217() {
         graph.getVertices().add(new Vertex<Integer>(4));
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new DirectedGraph().v3, new UndirectedGraph().v5);
+        assertNull(edges);
 }
 ---------------------------------------------------
 @Test
@@ -9662,6 +9686,7 @@ public void testAStarTest229() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
+        assertEquals(1, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -9744,6 +9769,7 @@ public void testAStarTest230() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
+        assertEquals(1, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -9826,6 +9852,7 @@ public void testAStarTest231() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
+        assertEquals(1, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -9908,6 +9935,7 @@ public void testAStarTest232() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
+        assertEquals(1, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -9990,6 +10018,7 @@ public void testAStarTest233() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
+        assertEquals(1, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10074,6 +10103,7 @@ public void testAStarTest234() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -10158,6 +10188,7 @@ public void testAStarTest235() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -10242,6 +10273,7 @@ public void testAStarTest236() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -10326,6 +10358,7 @@ public void testAStarTest237() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10410,6 +10443,7 @@ public void testAStarTest238() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10494,6 +10528,7 @@ public void testAStarTest239() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10578,6 +10613,7 @@ public void testAStarTest240() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10662,6 +10698,7 @@ public void testAStarTest241() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v7, new UndirectedGraph().v1);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
+        assertEquals(2, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -10748,6 +10785,7 @@ public void testAStarTest242() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -10834,6 +10872,7 @@ public void testAStarTest243() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -10920,6 +10959,7 @@ public void testAStarTest244() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(2, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -11006,6 +11046,7 @@ public void testAStarTest245() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(9, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -11092,6 +11133,7 @@ public void testAStarTest246() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(9, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -11178,6 +11220,7 @@ public void testAStarTest247() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(9, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -11264,6 +11307,7 @@ public void testAStarTest248() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(9, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -11350,6 +11394,7 @@ public void testAStarTest249() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v5);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v7);
+        assertEquals(9, edges.get(0).getCost());
 }
 ---------------------------------------------------
 @Test
@@ -11707,6 +11752,7 @@ public void testAStarTest253() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
+        assertEquals(0, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -11797,6 +11843,7 @@ public void testAStarTest254() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
+        assertEquals(0, edges.size());
 }
 ---------------------------------------------------
 @Test
@@ -11887,6 +11934,7 @@ public void testAStarTest255() {
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new UndirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
         astar = new AStar<Integer>();
         edges = (ArrayList<Edge<Integer>>) astar.aStar(new DirectedGraph().graph, new UndirectedGraph().v3, new UndirectedGraph().v3);
+        assertEquals(0, edges.size());
 }
 ---------------------------------------------------
 @Test
