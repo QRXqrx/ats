@@ -34,8 +34,6 @@ public class SlicerUtil {
 
     /**
      * Make sure every Atom Test Case contains only one assert statement.
-     * TODO: Has defect: This method may exclude useful statement, or make statement incomplete
-     *
      * @param atomTestCase needs refinement.
      */
     public static void excludeExtraAssert(AtomTestCase atomTestCase) {
