@@ -15,6 +15,36 @@ public class FileUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private FileUtil() { }
 
+
+    /**
+     * Read content from a txt file, one line for one item.
+     *
+     * @param path A path of a property file, written in a txt file.
+     * @return A List of parsing result.
+     */
+    public static List<String> readContentsLineByLine(String path) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+
+        File file = new File(path);
+        if(!file.isFile()) {
+            throw new IllegalArgumentException("Invalid path. Please input file path.");
+        }
+        if(!file.canRead()) {
+            throw new IllegalArgumentException(path + ": cannot be read");
+        }
+
+        List<String> contents = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        String line;
+        while((line = br.readLine()) != null) {
+            contents.add(line);
+        }
+        return contents;
+    }
+
+
     /**
      *
      * @param path A path of a file.
@@ -43,7 +73,8 @@ public class FileUtil {
             throw new IllegalArgumentException("Invalid path. Please input file path.");
         }
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+//        BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.write(content);
         writer.newLine();
         writer.close();
