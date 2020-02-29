@@ -21,6 +21,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author QRX
@@ -32,8 +33,28 @@ public class SlicerUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private SlicerUtil() { }
 
+
+    public static List<String> parseTargetMethods(List<String> contents) {
+        List<String> targetMethods = new ArrayList<>();
+        contents.forEach((content) -> {
+            String targetMethod = content
+                                    .replace("(","")
+                                    .replace(")", "")
+                                    .trim();
+            targetMethods.add(targetMethod);
+        });
+        return targetMethods.stream().distinct().collect(Collectors.toList());
+    }
+
+
+    public static List<String> parseTargetMethods(String path) throws IOException {
+        return parseTargetMethods(FileUtil.readContentsLineByLine(path));
+    }
+
+
     /**
      * Make sure every Atom Test Case contains only one assert statement.
+     * Assert realated method includes Assert.assert* , Assert.fail.
      * @param atomTestCase needs refinement.
      */
     public static void excludeExtraAssert(AtomTestCase atomTestCase) {
@@ -41,7 +62,7 @@ public class SlicerUtil {
         List<String> deleteLines = new ArrayList<>();
         int cnt = 1;
         for (String srcLine : srcLines) {
-            if(srcLine.contains("assert")) {
+            if(srcLine.contains("assert") || srcLine.contains("fail")) {
                 if(cnt != srcLines.size()) {
                     deleteLines.add(srcLine);
                 }
