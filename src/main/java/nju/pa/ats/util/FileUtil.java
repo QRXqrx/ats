@@ -15,6 +15,10 @@ public class FileUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private FileUtil() { }
 
+    public static String fileSimpleNameExcludeSuffix(String path) {
+        File file = new File(path);
+        return file.getName().replace(suffixOf(file), "");
+    }
 
     /**
      * Read content from a txt file, one line for one item.

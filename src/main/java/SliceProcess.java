@@ -5,8 +5,8 @@ import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SettingUtil;
 import nju.pa.ats.util.SlicerUtil;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -37,7 +37,6 @@ public class SliceProcess {
         String classDir = settings.getProperty("class_dir_path");
         String javaPath = settings.getProperty("java_src_path");
         String outputDir = settings.getProperty("output_dir_path");
-        String outputFileName = settings.getProperty("output_file_name");
         String targetMethodsPath = settings.getProperty("target_methods_path");
 
         com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo
@@ -67,7 +66,19 @@ public class SliceProcess {
 
         System.out.println("Start to write into file...");
         long time5 = System.currentTimeMillis();
+
         // Output to file
+//        String outputFileName = settings.getProperty("output_file_name");
+        String outputFileName = makeOutputName(
+                javaPath,
+                settings.getProperty("data_dependency_option"),
+                settings.getProperty("control_dependency_option"),
+                settings.getProperty("is_distinct")
+        );
+
+        System.out.println("OutputFileName: " + outputFileName);
+
+        //
         outputToFile(outputDir, outputFileName, atomTestCases);
         long time6 = System.currentTimeMillis();
         System.out.println("Writing into file done, time(ms): " + (time6 - time5));
@@ -107,6 +118,17 @@ public class SliceProcess {
         Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);
         return slicer.backwardSlice();
     }
+
+
+
+    private static String makeOutputName(String javaPath, String ddoStr, String cdoStr, String distinctStr) {
+        final String SEPARATOR = "-";
+        return FileUtil.fileSimpleNameExcludeSuffix(javaPath) + SEPARATOR +
+                ddoStr + SEPARATOR +
+                cdoStr + SEPARATOR +
+                distinctStr;
+    }
+
 
     private static void outputToFile(String outputDir, String outputFileName , List<AtomTestCase> atomTestCases) {
         // Output to file
