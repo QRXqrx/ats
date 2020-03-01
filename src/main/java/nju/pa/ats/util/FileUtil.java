@@ -45,6 +45,8 @@ public class FileUtil {
         while((line = br.readLine()) != null) {
             contents.add(line);
         }
+
+        br.close();
         return contents;
     }
 
@@ -81,8 +83,8 @@ public class FileUtil {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.write(content);
         writer.newLine();
-        writer.close();
 
+        writer.close();
         return file.getAbsolutePath();
     }
 
@@ -129,6 +131,7 @@ public class FileUtil {
             cnt++;
         }
 
+        reader.close();
         return contents;
     }
 
@@ -171,6 +174,7 @@ public class FileUtil {
             cnt++;
         }
 
+        reader.close();
         return "";
     }
 
