@@ -18,14 +18,14 @@ public class GetInnerDependencyTest1 {
     private String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/AStar/src/test/java/net/mooctest/AStarTest.java";
     private final String SEPARATOR = "-----------------------------\n";
 
-    // TODO: move in into a Util class
+    // TODO: move it into a Util class
     private String trimTail(String content) {
         final String TARGET = "}";
         int lastIndexOfTarget = content.lastIndexOf(TARGET);
         return content.substring(0, lastIndexOfTarget);
     }
 
-    // TODO: move it into a Util class
+    // TODO:: move it into a Util class
     private String getLinesAfterExclusionFromJavaFile(String javaPath) throws IOException {
         String testClassName = FileUtil.fileSimpleNameExcludeSuffix(javaPath);
         String classHead = "class " + testClassName;
