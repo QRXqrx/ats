@@ -56,7 +56,7 @@ public class SlicerTest1 {
 
         Slicer mySlicer = new Slicer(config, javaPathAstar, targetMethods);
 
-        List<AtomTestCase> atomTestCases = mySlicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = mySlicer.slice();
         System.out.println(atomTestCases.size());
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());
@@ -83,7 +83,7 @@ public class SlicerTest1 {
 
         Slicer mySlicer = new Slicer(config, javaPathALU, targetMethods);
 
-        List<AtomTestCase> atomTestCases = mySlicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = mySlicer.slice();
         System.out.println(atomTestCases.size());
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());

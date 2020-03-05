@@ -96,7 +96,7 @@ public class SliceProcessDefautAssert {
         // TODO: Use settings configuration to get targetMethods
         targetMethods.add("assert");
         Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);
-        return slicer.backwardSlice();
+        return slicer.slice();
     }
 
     private static void outputToFile(String outputDir, String outputFileName , List<AtomTestCase> atomTestCases) {

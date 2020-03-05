@@ -15,9 +15,9 @@ import java.util.List;
  * @email QRXwzx@outlook.com
  * @date 2020-03-04
  */
-public class DependencyUtil {
+public class TextUtil {
 
-    private DependencyUtil() {}
+    private TextUtil() {}
 
     /** Using for getting inner dependencies */
     public static final String SEPARATOR = "-----------------------------\n";
@@ -36,14 +36,18 @@ public class DependencyUtil {
 
 
     /**
-     * This is a private method prepared for <code>getAllInnerDependenciesFromJavaFile</code>
      *
      * @param content inner dependencies followed by a '}'
-     * @return Inner dependencies exclude '}'
+     * @return original content if cannot find '}' or
+     *         Inner dependencies exclude '}' if find target normally.
+     *
      */
-    private static String trimTail(String content) {
+    public static String trimTail(String content) {
         final String TARGET = "}";
         int lastIndexOfTarget = content.lastIndexOf(TARGET);
+        if(lastIndexOfTarget == -1) {
+            return content;
+        }
         return content.substring(0, lastIndexOfTarget);
     }
 

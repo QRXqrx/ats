@@ -5,7 +5,6 @@ import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SettingUtil;
 import nju.pa.ats.util.SlicerUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -116,7 +115,7 @@ public class SliceProcess {
             System.exit(-1);
         }
         Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);
-        return slicer.backwardSlice();
+        return slicer.slice();
     }
 
 

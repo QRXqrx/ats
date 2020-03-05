@@ -34,6 +34,11 @@ public class SlicerUtil {
     private SlicerUtil() { }
 
 
+    /**
+     *
+     * @param contents read from text file contains slice targets
+     * @return A list of strings, each of which represent a target method.
+     */
     public static List<String> parseTargetMethods(List<String> contents) {
         List<String> targetMethods = new ArrayList<>();
         contents.forEach((content) -> {
@@ -59,6 +64,10 @@ public class SlicerUtil {
      */
     public static void excludeExtraAssert(AtomTestCase atomTestCase) {
         List<String> srcLines = atomTestCase.getSourceCodeLines();
+        excludeExtraAssert(srcLines);
+    }
+
+    public static void excludeExtraAssert(List<String> srcLines) {
         List<String> deleteLines = new ArrayList<>();
         int cnt = 1;
         for (String srcLine : srcLines) {
@@ -72,7 +81,6 @@ public class SlicerUtil {
         for (String deleteLine : deleteLines) {
             srcLines.remove(deleteLine);
         }
-
     }
 
     /**

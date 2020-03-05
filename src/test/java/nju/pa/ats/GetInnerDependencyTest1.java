@@ -18,14 +18,12 @@ public class GetInnerDependencyTest1 {
     private String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/AStar/src/test/java/net/mooctest/AStarTest.java";
     private final String SEPARATOR = "-----------------------------\n";
 
-    // TODO: move it into a Util class
     private String trimTail(String content) {
         final String TARGET = "}";
         int lastIndexOfTarget = content.lastIndexOf(TARGET);
         return content.substring(0, lastIndexOfTarget);
     }
 
-    // TODO:: move it into a Util class
     private String getLinesAfterExclusionFromJavaFile(String javaPath) throws IOException {
         String testClassName = FileUtil.fileSimpleNameExcludeSuffix(javaPath);
         String classHead = "class " + testClassName;
@@ -54,7 +52,6 @@ public class GetInnerDependencyTest1 {
         return trimTail(strbuilder.toString());
     }
 
-    // TODO: move it into a Util class
     private List<String> getAllTests(String allLines) {
         String[] parts = allLines.split(SEPARATOR);
 
@@ -91,12 +88,10 @@ public class GetInnerDependencyTest1 {
         return newPartList;
     }
 
-    // TODO: move it into a Util class
     private String cleanSEPARTOR(String lines) {
         return lines.replace(SEPARATOR, "");
     }
 
-    // TODO: move it into a Util class, make it public static
     public String getAllInnerDependenciesFromJavaFile(String javaPath) throws IOException {
         String allLines = getLinesAfterExclusionFromJavaFile(javaPath);
         List<String> allTests = getAllTests(allLines);

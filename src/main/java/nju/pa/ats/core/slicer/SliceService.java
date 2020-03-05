@@ -18,13 +18,7 @@ public interface SliceService {
      *
      * @return A list of atom test cases.
      */
-    List<AtomTestCase> backwardSlice();
+    List<AtomTestCase> slice();
 
 
-    /**
-     * Utilize a slicer's own configuration, do forward-style slice.
-     *
-     * @return A list of atom test cases.
-     */
-    List<AtomTestCase> fowardSlice();
 }

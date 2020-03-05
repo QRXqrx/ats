@@ -49,10 +49,10 @@ public class RefineTest {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
         Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = slicer.slice();
         System.out.println(atomTestCases.size());
         slicer.setDistinct(true);
-        atomTestCases = slicer.backwardSlice();
+        atomTestCases = slicer.slice();
         System.out.println(atomTestCases.size());
     }
 
@@ -68,7 +68,7 @@ public class RefineTest {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
         Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = slicer.slice();
 
         List<AtomTestCase> atsAfterDistinct = atomTestCases.stream()
                 .distinct()
@@ -124,7 +124,7 @@ public class RefineTest {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
         Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = slicer.slice();
 
         List<AtomTestCase> atsAfterDistinct = atomTestCases.stream()
                 .distinct()
@@ -145,7 +145,7 @@ public class RefineTest {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
         Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.backwardSlice();
+        List<AtomTestCase> atomTestCases = slicer.slice();
 
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());

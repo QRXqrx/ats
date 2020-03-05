@@ -1,6 +1,6 @@
 package nju.pa.ats;
 
-import nju.pa.ats.util.DependencyUtil;
+import nju.pa.ats.util.TextUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @email QRXwzx@outlook.com
  * @date 2020-03-04
  */
-public class DependencyUtilTest {
+public class TextUtilTest {
 
     private void dumpTests(List<String> testStrs) {
         testStrs.forEach((test) -> {
@@ -26,33 +26,33 @@ public class DependencyUtilTest {
     @Test
     public void testGetTests5() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/TrySlicer/AtomTestExperiment/ats_AStarEX/NextDay/src/test/java/net/mooctest/DayTest.java";
-        dumpTests(DependencyUtil.getAllTestsFromJavaFile(javaPath));
+        dumpTests(TextUtil.getAllTestsFromJavaFile(javaPath));
     }
     @Test
     public void testGetTests4() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/ALU/src/test/java/net/mooctest/ALUTest.java";
-        dumpTests(DependencyUtil.getAllTestsFromJavaFile(javaPath));
+        dumpTests(TextUtil.getAllTestsFromJavaFile(javaPath));
     }
     @Test
     public void testGetTests3() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/TrySlicer/AtomTestExperiment/ats_AStarEX/NextDay/src/test/java/net/mooctest/YearTest.java";
-        dumpTests(DependencyUtil.getAllTestsFromJavaFile(javaPath));
+        dumpTests(TextUtil.getAllTestsFromJavaFile(javaPath));
     }
     @Test
     public void testGetTests2() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/AStar/src/test/java/net/mooctest/AStarTest.java";
-        dumpTests(DependencyUtil.getAllTestsFromJavaFile(javaPath));
+        dumpTests(TextUtil.getAllTestsFromJavaFile(javaPath));
     }
     @Test
     public void testGetTests1() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/TrySlicer/AtomTestExperiment/ats_AStarEX/Triangle/src/test/java/net/mooctest/TriangleTest.java";
-        dumpTests(DependencyUtil.getAllTestsFromJavaFile(javaPath));
+        dumpTests(TextUtil.getAllTestsFromJavaFile(javaPath));
     }
     
     
     private void printOD(String javaPath) {
         try {
-            System.out.println(DependencyUtil.getAllInnerDependenciesFromJavaFile(javaPath));
+            System.out.println(TextUtil.getAllInnerDependenciesFromJavaFile(javaPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class DependencyUtilTest {
     @Test
     public void testInner1() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/TrySlicer/AtomTestExperiment/ats_AStarEX/NextDay/src/test/java/net/mooctest/DateTest.java";
-        List<String> actual = DependencyUtil.getImportsFromJavaFile(javaPath);
+        List<String> actual = TextUtil.getImportsFromJavaFile(javaPath);
         String[] imports = new String[]{
                 "import static org.junit.Assert.*;",
                 "import java.io.ByteArrayOutputStream;",
@@ -110,7 +110,7 @@ public class DependencyUtilTest {
     @Test
     public void testInner0() throws IOException {
         String javaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/TrySlicer/AtomTestExperiment/ats_AStarEX/Triangle/src/test/java/net/mooctest/TriangleTest.java";
-        List<String> actual = DependencyUtil.getImportsFromJavaFile(javaPath);
+        List<String> actual = TextUtil.getImportsFromJavaFile(javaPath);
         String[] imports = new String[]{
                 "import static org.junit.Assert.*;",
                 "import org.junit.Ignore;",

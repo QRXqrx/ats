@@ -138,7 +138,7 @@ public class Slicer implements SliceService {
     }
 
     @Override
-    public List<AtomTestCase> backwardSlice() {
+    public List<AtomTestCase> slice() {
         List<AtomTestCase> atomTestCases = new ArrayList<>();
 
         if(this.targetMethods == null) {
@@ -166,10 +166,6 @@ public class Slicer implements SliceService {
         return atomTestCases;
     }
 
-    @Override
-    public List<AtomTestCase> fowardSlice() {
-        return null;
-    }
 
 
     public List<String> getTargetMethods() {
