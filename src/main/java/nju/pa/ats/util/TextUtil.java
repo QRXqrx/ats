@@ -23,11 +23,16 @@ public class TextUtil {
 
     /** Using for getting inner dependencies */
     public static final String SEPARATOR = "-----------------------------\n";
+    public static final String PUBLIC_VOID = "public void ";
+    public static final String ASSERT = "assert";
+    public static final String TRY = "try";
+    public static final String CATCH = "catch";
 
     /**
-     * TODO: add descriptions.
-     * @param tests
-     * @return
+     * Exclude blank lines in text test code.
+     *
+     * @param tests Text source codes of tests, each test represent a test method.
+     * @return A list strings. Every string represent a test after exclusion of blank lines.
      */
     public static List<String> refineTxtTests(List<String> tests) {
         List<String> refinedTests = new ArrayList<>();
@@ -46,9 +51,10 @@ public class TextUtil {
 
 
     /**
-     * TODO: add descriptions.
-     * @param imports
-     * @return
+     * Concatenate import statements.
+     *
+     * @param imports A list of string, each of which represent a import statement.
+     * @return Import string block.
      */
     public static String concatenateImports(List<String> imports) {
         StringBuilder importsBuilder = new StringBuilder(100 * imports.size());
@@ -57,14 +63,16 @@ public class TextUtil {
     }
 
 
-    // 假设所有的测试命名都是标准的，均为public void
     /**
-     * TODO: add descriptions.
-     * @param test
-     * @return
+     * At this stage, we assume that every test method is named in a formal way, i.e., every test
+     * method is annotated by @Test or @org.junit.Test, and its method declaration is started with
+     * <code> public void </code>.
+     * This method can parse out test name from its source code.
+     *
+     * @param test is a string represent a test method.
+     * @return The method name of <param>test</param>.
      */
     public static String parseTestName(String test) {
-        final String PUBLIC_VOID = "public void ";
         int loc1 = test.indexOf(PUBLIC_VOID);
         String sub1 = test.substring(loc1 + PUBLIC_VOID.length());
         int loc2 = sub1.indexOf("(");
@@ -72,12 +80,13 @@ public class TextUtil {
     }
 
     /**
-     * TODO: add descriptions.
-     * @param list
-     * @param <E>
+     * Traverse and print content of a list, in a relatively formal way.
+     *
+     * @param list a list.
+     * @param <E> Element type of the list. Generally, E should be a String or String-like type.
      */
     public static <E> void dump(List<E> list) {
-        String lineSign = "------------------------------------------------------------------------------------------------";
+        final String lineSign = "------------------------------------------------------------------------------------------------";
         list.forEach((test) -> {
             System.out.println(lineSign);
             System.out.print(test);
@@ -85,16 +94,16 @@ public class TextUtil {
         });
     }
 
-    // 假设所有的assert语句写的也是规范的
 
     /**
-     * TODO: add descriptions.
+     * In this stage, we assume that a assert statement is written in a formal way, i.e.,
+     * invoke <code>Assert.assert*()</code> to make assertions, and all <code>Assert.fail()</code>
+     * is surrounded by try-catch block.
      *
-     * @param test
-     * @return
+     * @param test is a string represent source code lines of a test method.
+     * @return A list of string, each of with represent a assert line within <param>test</param>
      */
     public static List<String> drawAsserts(String test) {
-        final String ASSERT = "assert";
         List<String> assertStrs = new ArrayList<>();
         String[] lines = test.split("\n");
         for (String line : lines) {
@@ -107,15 +116,24 @@ public class TextUtil {
 
 
     /**
-     * TODO: add descriptions.
-     * @param test
-     * @return
+     * In this stage, we assume that all the try-catch blocks in test coded is written "normally".
+     * That is, a try-catch will be organized as follows:
+     * __________________________________________________________________
+     * *  try {                    *                                    *
+     * *                           *                                    *
+     * *  } catch(Exception e) {   *     try{ } catch(Exception e) {}   *
+     * *                           *                                    *
+     * *  }                        *                                    *
+     * ------------------------------------------------------------------
+     * This method can draw out try-catch blocks from source code of test methods. These try-catch
+     * blocks refer to the outer nested try-catch, not including inner try-catch in a nested
+     * try-catch.
+     *
+     * @param test is a string represent source code lines of a test method.
+     * @return A list of TextSrcBlock, each of which represent a try-catch block.
      */
     public static List<TextSrcBlock> drawTryCatchs(String test) {
         List<TextSrcBlock> tryCatchBlocks = new ArrayList<>();
-        final String TRY = "try";
-        final String CATCH = "catch";
-
         String[] lines = test.split("\n");
         List<String> tryCatchLines = new ArrayList<>();
         boolean isStart = false;
@@ -156,11 +174,11 @@ public class TextUtil {
     }
 
     /**
-     * TODO: Maybe I can simply separator test by text operation, and use slice as refinement.
+     * Draw out all the text source codes represent test methods in target java file.
      *
      * @param javaPath path of target java file.
      * @return A list of strings, each of which represent a test method of the java file.
-     * @throws IOException
+     * @throws IOException when target file doesn't exist or read wrongly.
      */
     public static List<String> getAllTestsFromJavaFile(String javaPath) throws IOException {
         String lines = getLinesAfterExclusionFromJavaFile(javaPath);
@@ -300,14 +318,17 @@ public class TextUtil {
      * @throws IOException when target file doesn't exist or read wrongly.
      */
     public static List<String> getImportsFromJavaFile(String javaPath) throws IOException {
+        final String PACKAGE = "package";
+        final String IMPORT = "import";
+
         BufferedReader br = new BufferedReader(new FileReader(javaPath));
         List<String> importLines = new ArrayList<>();
         String line;
         while((line = br.readLine()) != null) {
-            if(line.equals("") || line.contains("package")) {
+            if(line.equals("") || line.contains(PACKAGE)) {
                 continue;
             }
-            if(!line.contains("import")) {
+            if(!line.contains(IMPORT)) {
                 break;
             }
             importLines.add(line);
