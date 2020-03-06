@@ -1,5 +1,7 @@
 package nju.pa.ats.util;
 
+import nju.pa.ats.core.text.TextSrcBlock;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,6 +23,137 @@ public class TextUtil {
 
     /** Using for getting inner dependencies */
     public static final String SEPARATOR = "-----------------------------\n";
+
+    /**
+     * TODO: add descriptions.
+     * @param tests
+     * @return
+     */
+    public static List<String> refineTxtTests(List<String> tests) {
+        List<String> refinedTests = new ArrayList<>();
+        for (String test : tests) {
+            String[] lines = test.split("\n");
+            StringBuilder refineTestBuilder = new StringBuilder(test.length());
+            for (String line : lines) {
+                if(!"".equals(line)) {
+                    refineTestBuilder.append(line).append("\n");
+                }
+            }
+            refinedTests.add(refineTestBuilder.toString());
+        }
+        return refinedTests;
+    }
+
+
+    /**
+     * TODO: add descriptions.
+     * @param imports
+     * @return
+     */
+    public static String concatenateImports(List<String> imports) {
+        StringBuilder importsBuilder = new StringBuilder(100 * imports.size());
+        imports.forEach((anImport) -> importsBuilder.append(anImport).append("\n"));
+        return importsBuilder.toString();
+    }
+
+
+    // 假设所有的测试命名都是标准的，均为public void
+    /**
+     * TODO: add descriptions.
+     * @param test
+     * @return
+     */
+    public static String parseTestName(String test) {
+        final String PUBLIC_VOID = "public void ";
+        int loc1 = test.indexOf(PUBLIC_VOID);
+        String sub1 = test.substring(loc1 + PUBLIC_VOID.length());
+        int loc2 = sub1.indexOf("(");
+        return sub1.substring(0, loc2);
+    }
+
+    /**
+     * TODO: add descriptions.
+     * @param list
+     * @param <E>
+     */
+    public static <E> void dump(List<E> list) {
+        String lineSign = "------------------------------------------------------------------------------------------------";
+        list.forEach((test) -> {
+            System.out.println(lineSign);
+            System.out.print(test);
+            System.out.println(lineSign);
+        });
+    }
+
+    // 假设所有的assert语句写的也是规范的
+
+    /**
+     * TODO: add descriptions.
+     *
+     * @param test
+     * @return
+     */
+    public static List<String> drawAsserts(String test) {
+        final String ASSERT = "assert";
+        List<String> assertStrs = new ArrayList<>();
+        String[] lines = test.split("\n");
+        for (String line : lines) {
+            if(line.contains(ASSERT)) {
+                assertStrs.add(line);
+            }
+        }
+        return assertStrs;
+    }
+
+
+    /**
+     * TODO: add descriptions.
+     * @param test
+     * @return
+     */
+    public static List<TextSrcBlock> drawTryCatchs(String test) {
+        List<TextSrcBlock> tryCatchBlocks = new ArrayList<>();
+        final String TRY = "try";
+        final String CATCH = "catch";
+
+        String[] lines = test.split("\n");
+        List<String> tryCatchLines = new ArrayList<>();
+        boolean isStart = false;
+        boolean prepareForEnding = false;
+        int cnt = 0;
+        for (String line : lines) {
+            if(!line.contains(TRY) && !isStart) { // 还没开始构建try-catch
+                continue;
+            }
+            if(line.contains(TRY)) {
+                if(!isStart) {
+                    isStart = true;
+                }
+            }
+            if(isStart) {
+                if(line.contains("{")) {
+                    cnt++;
+                }
+                if(line.contains("}")) {
+                    cnt--;
+                }
+                if(line.contains(CATCH)) {
+                    if(!prepareForEnding) {
+                        prepareForEnding = true;
+                    }
+                }
+                tryCatchLines.add(line);
+                if((cnt == 0) && prepareForEnding) {
+                    List<String> temp = new ArrayList<>(tryCatchLines);
+                    tryCatchBlocks.add(new TextSrcBlock(temp));
+                    tryCatchLines.clear();
+                    isStart = false;
+                    prepareForEnding = false;
+                }
+            }
+        }
+        return tryCatchBlocks;
+    }
 
     /**
      * TODO: Maybe I can simply separator test by text operation, and use slice as refinement.

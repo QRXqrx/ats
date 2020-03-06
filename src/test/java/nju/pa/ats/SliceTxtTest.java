@@ -27,7 +27,7 @@ public class SliceTxtTest {
     }
 
 
-    // TODO: move it into TextSlicer
+    
     // 先假设try-catch的写法都是统一的，不存在所有部分挤在一行的情况
     private List<TextSrcBlock> drawTryCatchs(String test) {
         List<TextSrcBlock> tryCatchBlocks = new ArrayList<>();
@@ -73,7 +73,7 @@ public class SliceTxtTest {
         return tryCatchBlocks;
     }
 
-    // TODO: move it into TextSlicer
+    
     // 假设所有的assert语句写的也是规范的
     private List<String> drawAsserts(String test) {
         final String ASSERT = "assert";
@@ -87,12 +87,12 @@ public class SliceTxtTest {
         return assertStrs;
     }
 
-    // TODO: move it into TextSlicer
+    
     private String exclude(String origin, String exPart) {
         return origin.replace(exPart, "");
     }
 
-    // TODO: move it into TextSlicer
+
     // 假设所有的测试命名都是标准的，均为public void
     private String parseTestName(String test) {
         final String PUBLIC_VOID = "public void ";
@@ -102,14 +102,14 @@ public class SliceTxtTest {
         return sub1.substring(0, loc2);
     }
 
-    // TODO: move it into TextSlicer
+
     private String buildNewTest(String head, String mid, String oldName, int cnt) {
         String newName = oldName + "_" + String.valueOf(cnt);
         String newHead = head.replace(oldName, newName);
         return newHead + "\n" + mid + "}\n";
     }
 
-    // TODO: move it into TextSlicer
+
     private List<String> splitOne(String test) {
         /*//
         System.out.println(test);
@@ -139,7 +139,7 @@ public class SliceTxtTest {
         return newTests;
     }
 
-    // TODO: move it into TextSlicer
+
     private List<String> refineTxtTests(List<String> tests) {
         List<String> refinedTests = new ArrayList<>();
         for (String test : tests) {
@@ -155,7 +155,7 @@ public class SliceTxtTest {
         return refinedTests;
     }
 
-    // TODO: move it into TextSlicer
+
     private List<String> buildNewTests(List<String> oldTests) {
         List<String> newTests = new ArrayList<>();
         for (String oldTest : oldTests) {
@@ -164,7 +164,7 @@ public class SliceTxtTest {
         return refineTxtTests(newTests);
     }
 
-    // TODO: move it into TextSlicer
+
     private List<String> buildNewTestsFromJavaFile(String javaPath) throws IOException {
         List<String> oldTests = TextUtil.getAllTestsFromJavaFile(javaPath);
         return buildNewTests(oldTests);

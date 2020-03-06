@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * @author QRX
  * @email QRXwzx@outlook.com
  * @date 2020-03-05
  */
-public class TextSlicer {
+@Deprecated
+public class TextSlicer implements SliceTextService {
 
     private String javaPath;
 
@@ -22,6 +24,14 @@ public class TextSlicer {
     private String dependencies;
 
     private List<String> newTests;
+
+    public TextSlicer(String javaPath) throws IOException {
+        this.javaPath = javaPath;
+        this.imports = TextUtil.getImportsFromJavaFile(javaPath);
+        this.dependencies = TextUtil.getAllInnerDependenciesFromJavaFile(javaPath);
+        this.oldTests = TextUtil.getAllTestsFromJavaFile(javaPath);
+        this.newTests = buildNewTests();
+    }
 
     private <E> void dump(List<E> list) {
         String lineSign = "------------------------------------------------------------------------------------------------";
@@ -75,9 +85,8 @@ public class TextSlicer {
         }
         return tryCatchBlocks;
     }
-
-    // TODO: move it into TextSlicer
     // 假设所有的assert语句写的也是规范的
+
     private List<String> drawAsserts(String test) {
         final String ASSERT = "assert";
         List<String> assertStrs = new ArrayList<>();
@@ -90,13 +99,11 @@ public class TextSlicer {
         return assertStrs;
     }
 
-    // TODO: move it into TextSlicer
     private String exclude(String origin, String exPart) {
         return origin.replace(exPart, "");
     }
-
-    // TODO: move it into TextSlicer
     // 假设所有的测试命名都是标准的，均为public void
+
     private String parseTestName(String test) {
         final String PUBLIC_VOID = "public void ";
         int loc1 = test.indexOf(PUBLIC_VOID);
@@ -105,14 +112,12 @@ public class TextSlicer {
         return sub1.substring(0, loc2);
     }
 
-    // TODO: move it into TextSlicer
     private String buildNewTest(String head, String mid, String oldName, int cnt) {
         String newName = oldName + "_" + String.valueOf(cnt);
         String newHead = head.replace(oldName, newName);
         return newHead + "\n" + mid + "\n" + "}\n";
     }
 
-    // TODO: move it into TextSlicer
     private List<String> splitOne(String test) {
         /*//
         System.out.println(test);
@@ -142,7 +147,6 @@ public class TextSlicer {
         return newTests;
     }
 
-    // TODO: move it into TextSlicer
     private List<String> refineTxtTests(List<String> tests) {
         List<String> refinedTests = new ArrayList<>();
         for (String test : tests) {
@@ -158,22 +162,12 @@ public class TextSlicer {
         return refinedTests;
     }
 
-    // TODO: move it into TextSlicer
     private List<String> buildNewTests() {
         List<String> newTests = new ArrayList<>();
         for (String oldTest : oldTests) {
             newTests.addAll(splitOne(oldTest));
         }
         return refineTxtTests(newTests);
-    }
-
-    public TextSlicer(String javaPath) throws IOException {
-        this.javaPath = javaPath;
-
-        this.imports = TextUtil.getImportsFromJavaFile(javaPath);
-        this.dependencies = TextUtil.getAllInnerDependenciesFromJavaFile(javaPath);
-        this.oldTests = TextUtil.getAllTestsFromJavaFile(javaPath);
-        this.newTests = buildNewTests();
     }
 
 
@@ -254,10 +248,12 @@ public class TextSlicer {
         return importsBuilder.toString();
     }
 
+    @Override
     public String generateNewTestClassContent() {
         return concatenateImports() + "\n\n" + wrapClass(makeClassContent());
     }
 
+    @Override
     public String outputNewTestClassTo(String outputDir) throws IOException {
         File dir = new File(outputDir);
         if(dir.exists()) {
