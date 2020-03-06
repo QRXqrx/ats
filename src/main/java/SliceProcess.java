@@ -16,6 +16,10 @@ import java.util.Properties;
  */
 public class SliceProcess {
 
+    public static void main(String[] args) {
+        run(args);
+    }
+
     private SliceProcess() { }
 
     public static void run(String[] args) {
@@ -108,7 +112,7 @@ public class SliceProcess {
 
         List<String> targetMethods = null;
         try {
-            targetMethods = SlicerUtil.parseTargetMethods(targetMethodsPath);
+            targetMethods = SlicerUtil.parseTargets(targetMethodsPath);
         } catch (IOException e) {
             System.out.println("In SliceProcess@makeSlice, parse target methods failed: " + classDir);
             e.printStackTrace();

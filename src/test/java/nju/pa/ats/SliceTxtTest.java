@@ -298,7 +298,7 @@ public class SliceTxtTest {
                         "\n" +
                         "        List<String> targetMethods = null;\n" +
                         "        try {\n" +
-                        "            targetMethods = SlicerUtil.parseTargetMethods(targetMethodsPath);\n" +
+                        "            targetMethods = SlicerUtil.parseTargets(targetMethodsPath);\n" +
                         "        } catch (IOException e) {\n" +
                         "            System.out.println(\"In SliceProcess@makeSlice, parse target methods failed: \" + classDir);\n" +
                         "            e.printStackTrace();\n" +
@@ -337,7 +337,7 @@ public class SliceTxtTest {
                         "\n" +
                         "        List<String> targetMethods = null;\n" +
                         "        try {\n" +
-                        "            targetMethods = SlicerUtil.parseTargetMethods(targetMethodsPath);\n" +
+                        "            targetMethods = SlicerUtil.parseTargets(targetMethodsPath);\n" +
                         "        } catch (IOException e) {\n" +
                         "            System.out.println(\"In SliceProcess@makeSlice, parse target methods failed: \" + classDir);\n" +
                         "            e.printStackTrace();\n" +

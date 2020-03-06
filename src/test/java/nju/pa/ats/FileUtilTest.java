@@ -18,7 +18,15 @@ import java.util.stream.Collectors;
 
 public class FileUtilTest {
 
-    
+
+    @Test
+    public void testFile() {
+        System.out.println(File.pathSeparator);
+        System.out.println(File.pathSeparatorChar);
+        System.out.println(File.separator);
+        System.out.println(File.separatorChar);
+    }
+
     @Test
     public void testWriteContent() throws IOException {
         String referencePath1 = "./output1.txt";

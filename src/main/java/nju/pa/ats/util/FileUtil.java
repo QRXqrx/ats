@@ -199,6 +199,11 @@ public class FileUtil {
         return suffix;
     }
 
+
+    public static final String JAVA_SUFFIX = ".java";
+    public static final String CLASS_SUFFIX = ".class";
+    public static final String TXT_SUFFIX = ".txt";
+
     /**
      *  Get all files that has a suffix as <param>suffix</param>
      *  under directory <param>dir</param> recursively.

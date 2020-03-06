@@ -27,7 +27,7 @@ public class ParseTargetMethodTest {
     public void testParseTargetMethod1() {
         try {
             List<String> contents = FileUtil.readContentsLineByLine(methodsTxtPath);
-            List<String> targetMethods = SlicerUtil.parseTargetMethods(contents);
+            List<String> targetMethods = SlicerUtil.parseTargets(contents);
             targetMethods.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

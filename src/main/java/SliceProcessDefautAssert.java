@@ -15,6 +15,7 @@ import java.util.Properties;
  * @email QRXwzx@outlook.com
  * @date 2020-02-29
  */
+@Deprecated
 public class SliceProcessDefautAssert {
 
     private SliceProcessDefautAssert() { }

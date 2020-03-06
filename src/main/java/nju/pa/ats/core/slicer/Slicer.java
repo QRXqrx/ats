@@ -9,6 +9,7 @@ import nju.pa.ats.util.AtomUtil;
 import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SlicerUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,10 +18,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * TODO: Add a new **Slicer extends this, which provides methods for generating new test
+ * TODO: class after slice.
+ *
  * First Slicer, implements <interface>SliceService</interface>
  * You could construct a Slicer by passing an AnalysisScope or SlicerConfig,
- * which also contains an AnalysisScope.So AnalysisScope is indisepensable for
- * an Slicer. Please make sure your AnalysisScope is correct.
+ * which also contains an AnalysisScope. So AnalysisScope is indisepensable for
+ * a Slicer. Please make sure your AnalysisScope is correct.
  *
  * For construct a slice, AnalysisScope and source path are indispensable.
  *
@@ -31,9 +35,6 @@ import java.util.stream.Collectors;
  */
 public class Slicer implements SliceService {
 
-
-    // TODO: Change to String maybe.
-//    private List<Statement> seeds;
     private SlicerConfig config;
     private String javaPath;
     private List<String> targetMethods;
@@ -133,8 +134,9 @@ public class Slicer implements SliceService {
     }
 
     private String getAtcName() {
-        int loc = this.javaPath.lastIndexOf("/");
-        return this.javaPath.substring(loc + 1).replace(".java", "");
+//        int loc = this.javaPath.lastIndexOf(File.separator);
+//        return this.javaPath.substring(loc + 1).replace(".java", "");
+        return FileUtil.fileSimpleNameExcludeSuffix(this.javaPath);
     }
 
     @Override

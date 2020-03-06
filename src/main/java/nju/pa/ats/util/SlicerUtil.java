@@ -12,15 +12,12 @@ import com.ibm.wala.ssa.SSAInvokeInstruction;
 import com.ibm.wala.types.ClassLoaderReference;
 import com.ibm.wala.util.config.AnalysisScopeReader;
 import com.ibm.wala.util.intset.IntSet;
-import nju.pa.ats.core.result.AtomCodeSnippet;
 import nju.pa.ats.core.result.AtomTestCase;
 
 import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -33,13 +30,37 @@ public class SlicerUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private SlicerUtil() { }
 
+    /**
+     * TODO: add descriptions
+     * @param javaFiles
+     * @param classFiles
+     * @return
+     */
+    public static Map<String, List<File>> relateSrcFileWithClasses(List<File> javaFiles, List<File> classFiles) {
+
+        Map<String, List<File>> map = new HashMap<>();
+        List<String> javaAbsPaths = javaFiles.stream().map(File::getAbsolutePath).collect(Collectors.toList());
+
+        for (String javaAbsPath : javaAbsPaths) {
+            String javaFileName = FileUtil.fileSimpleNameExcludeSuffix(javaAbsPath);
+            List<File> relatedClassFiles = classFiles.stream()
+                    .filter((classFile) -> {
+                        String classFileName = FileUtil.fileSimpleNameExcludeSuffix(classFile.getAbsolutePath());
+                        return classFileName.contains(javaFileName);
+                    })
+                    .collect(Collectors.toList());
+            map.put(javaAbsPath, relatedClassFiles);
+        }
+
+        return map;
+    }
 
     /**
      *
      * @param contents read from text file contains slice targets
      * @return A list of strings, each of which represent a target method.
      */
-    public static List<String> parseTargetMethods(List<String> contents) {
+    public static List<String> parseTargets(List<String> contents) {
         List<String> targetMethods = new ArrayList<>();
         contents.forEach((content) -> {
             String targetMethod = content
@@ -52,14 +73,14 @@ public class SlicerUtil {
     }
 
 
-    public static List<String> parseTargetMethods(String path) throws IOException {
-        return parseTargetMethods(FileUtil.readContentsLineByLine(path));
+    public static List<String> parseTargets(String path) throws IOException {
+        return parseTargets(FileUtil.readContentsLineByLine(path));
     }
 
 
     /**
      * Make sure every Atom Test Case contains only one assert statement.
-     * Assert realated method includes Assert.assert* , Assert.fail.
+     * Assert realated method includes Assert.assert*() or Assert.fail().
      * @param atomTestCase needs refinement.
      */
     public static void excludeExtraAssert(AtomTestCase atomTestCase) {
@@ -84,6 +105,7 @@ public class SlicerUtil {
     }
 
     /**
+     * Find seed statements for slicing by text source code line.
      *
      * @param javaSrcPath for getting source code.
      * @param cgNode Search each instruction to find a seed.
@@ -144,12 +166,11 @@ public class SlicerUtil {
     }
 
 
-
-
-
     /**
+     * Get <code>AnalysisScope</code> dynamically.
      *
-     * @param classDirPath From which slicer can read a dynamic scope.
+     * @param classFiles A list of test class files, each of which represent a class file you want to add
+     *                   into AnalysisScope.
      * @param exPath Path of exclusion file, output a warning when it is "" and use a default exclusion file.
      * @param classLoader Use this classLoader to load class file into memory.
      * @return AnalysisScope
@@ -157,17 +178,17 @@ public class SlicerUtil {
      * @throws IllegalArgumentException when exPath is null.
      */
     public static AnalysisScope getDynamicScope(
-            String classDirPath,
+            List<File> classFiles,
             String exPath,
             ClassLoader classLoader
     ) throws IOException {
+
         if(exPath == null) {
             throw new IllegalArgumentException(
                     "Exclusion file path cannot be null! If you want to use default, " +
                             "you could pass an empty string or not only pass classDirPath and classLoader."
             );
         }
-
         File exFile = new File(exPath);
         File exclusionFile;
         if(!FileUtil.suffixOf(exFile).equals(".txt")) {
@@ -183,8 +204,7 @@ public class SlicerUtil {
                 classLoader
         );
 
-        List<File> classList = FileUtil.getAllFilesBySuffix(classDirPath, ".class");
-        classList.forEach((file) -> {
+        classFiles.forEach((file) -> {
             try {
                 scope.addClassFileToScope(ClassLoaderReference.Application, file);
             } catch (InvalidClassFileException e) {
@@ -194,6 +214,37 @@ public class SlicerUtil {
 
         return scope;
     }
+
+
+    /**
+     * Get <code>AnalysisScope</code> dynamically.
+     *
+     * @param classDirPath From which slicer can read a dynamic scope.
+     * @param exPath Path of exclusion file, output a warning when it is "" and use a default exclusion file.
+     * @param classLoader Use this classLoader to load class file into memory.
+     * @return AnalysisScope
+     * @throws IOException when read scope wrongly.
+     * @throws IllegalArgumentException when exPath is null.
+     * @throws IllegalArgumentException when classDirPath is invalid.
+     */
+    public static AnalysisScope getDynamicScope(
+            String classDirPath,
+            String exPath,
+            ClassLoader classLoader
+    ) throws IOException {
+        File dir = new File(classDirPath);
+        if(!dir.exists()) {
+            throw new IllegalArgumentException("Wrong classDirPath: Path does not exists");
+        }
+        if(!dir.isDirectory()) {
+            throw new IllegalArgumentException("Wrong classDirPath: Path does not refer to a directory.");
+        }
+        List<File> classFiles = FileUtil.getAllFilesBySuffix(classDirPath, ".class");
+        return getDynamicScope(classFiles, exPath, classLoader);
+
+    }
+
+
 
     /**
      * This is a simpler way.
@@ -210,7 +261,18 @@ public class SlicerUtil {
         return getDynamicScope(classDirPath, "", classLoader);
     }
 
+    public static AnalysisScope getDynamicScope(
+            List<File> classFiles,
+            ClassLoader classLoader) throws IOException {
+        return getDynamicScope(classFiles, "", classLoader);
+    }
 
+    /**
+     *
+     *
+     * Only a example.
+     *
+     */
     @Deprecated
     public static Statement findCallTo(CGNode node, String methodName) {
         IR ir = node.getIR();

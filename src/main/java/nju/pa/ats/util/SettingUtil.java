@@ -18,6 +18,7 @@ public class SettingUtil {
     private SettingUtil() { }
 
     /**
+     * Read resources from current directory.
      *
      * @param name The reference name of setting file. The file should under this directory
      * @param classLoader Provide a classLoader to load the properties into memory
@@ -32,6 +33,7 @@ public class SettingUtil {
     }
 
     /**
+     * Read resources from arbitrary path.
      *
      * @param path Absolute path or relative path.
      * @return Properties settings

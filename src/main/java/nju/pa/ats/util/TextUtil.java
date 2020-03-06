@@ -79,6 +79,13 @@ public class TextUtil {
         return sub1.substring(0, loc2);
     }
 
+    public static <E> void dump(List<E> list, String lineSign) {
+        list.forEach((test) -> {
+            System.out.println(test);
+            System.out.println(lineSign);
+        });
+    }
+
     /**
      * Traverse and print content of a list, in a relatively formal way.
      *
@@ -87,11 +94,7 @@ public class TextUtil {
      */
     public static <E> void dump(List<E> list) {
         final String lineSign = "------------------------------------------------------------------------------------------------";
-        list.forEach((test) -> {
-            System.out.println(lineSign);
-            System.out.print(test);
-            System.out.println(lineSign);
-        });
+        dump(list, lineSign);
     }
 
 

@@ -1,5 +1,1 @@
 assert
-fail
-verifyException
-Assert
-Assertion
