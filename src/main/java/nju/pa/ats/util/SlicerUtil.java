@@ -129,7 +129,11 @@ public class SlicerUtil {
                 try {
                     srcLine = FileUtil.readContentByLineNumber(javaSrcPath, AtomUtil.srcLineNumberOf(s));
                 } catch (IOException e) {
-                    System.out.println("Get srcLine failed, in findSeed");
+                    System.out.println("Getting srcLine failed due to IOException, in findSeed");
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    // When pass a negative line number in to FileUtil.readContentByLineNumber
+                    System.out.println("Getting srcLine failed due to negetive srcLine number, in findSeed");
                     e.printStackTrace();
                 }
                 if(srcLine.contains(targetMethod)) {

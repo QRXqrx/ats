@@ -6,7 +6,7 @@
 public class Main {
     public static void main(String[] args) {
 //        SliceProcessDefautAssert.run(args);
-        SliceProcess.run(args);
-//        SliceProcessMultiJavaFiles.run(args);
+//        SliceProcess.run(args);
+        SliceProcessMultiJavaFiles.run(args);
     }
 }

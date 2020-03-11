@@ -231,6 +231,7 @@ public class FileUtil {
         List<File> targetFiles = new ArrayList<>();
         File[] allFiles = directory.listFiles();
         if(allFiles != null) {
+            // Add files end with the target suffix recursively.
             for (File file : allFiles) {
                 if(file.isDirectory()) {
                     targetFiles.addAll(getAllFilesBySuffix(file.getAbsolutePath(), suffix));

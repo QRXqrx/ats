@@ -16,7 +16,7 @@ public class ParseSettingTest {
     
     @Test
     public void test1() throws IOException {
-        String absPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/main/resources/settings.properties";
+        String absPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/main/resources/deprecated-settings.properties";
         Properties settings = SettingUtil.loadSettings(absPath);
         String classDir = settings.getProperty("class_dir_path");
         String javaPath = settings.getProperty("java_src_path");
@@ -33,7 +33,7 @@ public class ParseSettingTest {
 
     @Test
     public void test0() throws IOException {
-        String shortPath = "settings.properties";
+        String shortPath = "deprecated-settings.properties";
         Properties settings = SettingUtil.loadSettings(shortPath, this.getClass().getClassLoader());
         String classDir = settings.getProperty("class_dir_path");
         String javaPath = settings.getProperty("java_src_path");
