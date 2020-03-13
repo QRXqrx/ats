@@ -41,6 +41,8 @@ public class SliceProcessMultiJavaFiles {
         String javaDirPath = settings.getProperty("java_dir_path");
         String outputDir = settings.getProperty("output_dir_path");
         String targetsPath = settings.getProperty("targets_path");
+        String exclusionPath = settings.getProperty("exclusions_path");
+        exclusionPath = "default".equals(exclusionPath) ? "" : exclusionPath;
 
         com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo
                 = com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions.valueOf(
@@ -61,7 +63,9 @@ public class SliceProcessMultiJavaFiles {
 
 
         // Make slice
-        Map<String, List<AtomTestCase>> slicesMap = makeSlice(javaDirPath, classDirPath, ddo, cdo, isDistinct, targetsPath);
+        Map<String, List<AtomTestCase>> slicesMap
+                = makeSlice(javaDirPath, classDirPath, ddo, cdo, isDistinct, targetsPath, exclusionPath);
+
         long time4 = System.currentTimeMillis();
         System.out.println("Slice done, time(ms): " + (time4 - time3));
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
@@ -149,7 +153,8 @@ public class SliceProcessMultiJavaFiles {
             com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo,
             com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions cdo,
             boolean isDistinct,
-            String targetsPath
+            String targetsPath,
+            String exPath
     ) {
 
         Map<String, List<File>> javaToClassesMap = SlicerUtil.relateSrcFileWithClasses(
@@ -164,7 +169,7 @@ public class SliceProcessMultiJavaFiles {
             SlicerConfig config = null;
             try {
                 config = new SlicerConfig(
-                        SlicerUtil.getDynamicScope(classFiles, Main.class.getClassLoader()),
+                        SlicerUtil.getDynamicScope(classFiles, exPath, Main.class.getClassLoader()),
                         ddo,
                         cdo
                 );

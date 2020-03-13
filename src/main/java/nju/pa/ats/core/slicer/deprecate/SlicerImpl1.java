@@ -69,7 +69,7 @@ public class SlicerImpl1 implements ISlice{
         File exclusionFile = null;
         if(!FileUtil.suffixOf(exFile).equals(".txt")) {
             System.err.println("Warning: Please input invalid exclusion file. Now using default.");
-            exclusionFile = new File("exclusions.txt");
+            exclusionFile = new File("default-exclusions.txt");
         } else {
             exclusionFile = exFile;
         }

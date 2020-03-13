@@ -127,7 +127,11 @@ public class SlicerUtil {
                 Statement s = new NormalStatement(cgNode, iIndex);
                 String srcLine = "";
                 try {
-                    srcLine = FileUtil.readContentByLineNumber(javaSrcPath, AtomUtil.srcLineNumberOf(s));
+                    int srcLinuNum = AtomUtil.srcLineNumberOf(s);
+                    if(srcLinuNum == -1) { // See javadoc of AtomUtil.srcLineNumberOf
+                        continue;
+                    }
+                    srcLine = FileUtil.readContentByLineNumber(javaSrcPath, srcLinuNum);
                 } catch (IOException e) {
                     System.out.println("Getting srcLine failed due to IOException, in findSeed");
                     e.printStackTrace();
@@ -196,8 +200,8 @@ public class SlicerUtil {
         File exFile = new File(exPath);
         File exclusionFile;
         if(!FileUtil.suffixOf(exFile).equals(".txt")) {
-            System.err.println("Warning: Please input valid exclusion file. Now using default.");
-            exclusionFile = new File("exclusions.txt");
+            System.err.println("Invalid exclusion file. Now using default.");
+            exclusionFile = new File("default-exclusions.txt");
         } else {
             exclusionFile = exFile;
         }

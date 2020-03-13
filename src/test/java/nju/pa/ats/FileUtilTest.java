@@ -72,7 +72,7 @@ public class FileUtilTest {
 
     @Test(timeout = 4000)
     public void testGetSuffix1() {
-        File file = new File("exclusions.txt");
+        File file = new File("default-exclusions.txt");
         Assert.assertEquals(".txt", FileUtil.suffixOf(file));
     }
 
@@ -172,7 +172,7 @@ public class FileUtilTest {
 
         File exclusionFile = null;
         try {
-            exclusionFile = new File("exclusions.txt");
+            exclusionFile = new File("default-exclusions.txt");
         } catch (NullPointerException e) {
             exclusionFile = new File("Java60RegressionExclusions.txt");
             e.printStackTrace();
