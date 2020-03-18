@@ -18,7 +18,46 @@ import java.util.stream.Collectors;
 
 public class FileUtilTest {
 
+    @Test
+    public void testClear1() throws IOException {
+        String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/text-operation-AStarTest.java";
+        FileUtil.clearCommentsForJavaFile(path);
+        FileUtil.clearBlankLinesForJavaFile(path);
+    }
 
+
+    @Test
+    public void testClear0() throws IOException {
+        String dirPath = "C:/Users/QRX/Desktop/FullStackEngineer";
+        FileUtil.clearCommentsForJavaFile(dirPath);
+        FileUtil.clearBlankLinesForJavaFile(dirPath);
+    }
+
+    @Test
+    public void testClearBlankLines1() throws IOException {
+        String dirPath = "C:/Users/QRX/Desktop/FullStackEngineer";
+        FileUtil.clearBlankLinesForJavaFile(dirPath);
+    }
+
+    @Test
+    public void testClearBlankLines0() throws IOException {
+        String path = "C:/Users/QRX/Desktop/FullStackEngineer/Javadoc.java";
+        FileUtil.clearBlankLinesForJavaFile(path);
+    }
+
+
+    @Test
+    public void testClearComments1() throws IOException {
+        String dirPath = "C:/Users/QRX/Desktop/FullStackEngineer";
+        FileUtil.clearCommentsForJavaFile(dirPath);
+    }
+
+    @Test
+    public void testClearComments0() throws IOException {
+        String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/text-operation-AStarTest.java";
+        FileUtil.clearCommentsForJavaFile(path);
+    }
+    
     @Test
     public void testFile() {
         System.out.println(File.pathSeparator);

@@ -214,7 +214,7 @@ public class TextUtil {
      * @throws IOException when target file doesn't exist or read wrongly.
      */
     private static String getLinesAfterExclusionFromJavaFile(String javaPath) throws IOException {
-        String testClassName = FileUtil.fileSimpleNameExcludeSuffix(javaPath);
+        String testClassName = FileUtil.fileBaseName(javaPath);
         String classHead = "class " + testClassName;
 
         BufferedReader br = new BufferedReader(new FileReader(javaPath));

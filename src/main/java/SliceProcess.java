@@ -126,7 +126,7 @@ public class SliceProcess {
 
     private static String makeOutputName(String javaPath, String ddoStr, String cdoStr, String distinctStr) {
         final String SEPARATOR = "-";
-        return FileUtil.fileSimpleNameExcludeSuffix(javaPath) + SEPARATOR +
+        return FileUtil.fileBaseName(javaPath) + SEPARATOR +
                 ddoStr + SEPARATOR +
                 cdoStr + SEPARATOR +
                 distinctStr;

@@ -305,7 +305,7 @@ public class GetInnerDependencyTest {
 
     @Test
     public void testGetIDByReflection() throws IOException, ClassNotFoundException {
-        String className = FileUtil.fileSimpleNameExcludeSuffix(path);
+        String className = FileUtil.fileBaseName(path);
         // get package name
         String packageLine = FileUtil.readContentByLineNumber(path, 1);
 

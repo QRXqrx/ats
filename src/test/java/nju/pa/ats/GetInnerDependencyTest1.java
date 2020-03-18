@@ -25,7 +25,7 @@ public class GetInnerDependencyTest1 {
     }
 
     private String getLinesAfterExclusionFromJavaFile(String javaPath) throws IOException {
-        String testClassName = FileUtil.fileSimpleNameExcludeSuffix(javaPath);
+        String testClassName = FileUtil.fileBaseName(javaPath);
         String classHead = "class " + testClassName;
 
         BufferedReader br = new BufferedReader(new FileReader(javaPath));

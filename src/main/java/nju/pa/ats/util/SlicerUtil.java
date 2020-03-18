@@ -42,10 +42,10 @@ public class SlicerUtil {
         List<String> javaAbsPaths = javaFiles.stream().map(File::getAbsolutePath).collect(Collectors.toList());
 
         for (String javaAbsPath : javaAbsPaths) {
-            String javaFileName = FileUtil.fileSimpleNameExcludeSuffix(javaAbsPath);
+            String javaFileName = FileUtil.fileBaseName(javaAbsPath);
             List<File> relatedClassFiles = classFiles.stream()
                     .filter((classFile) -> {
-                        String classFileName = FileUtil.fileSimpleNameExcludeSuffix(classFile.getAbsolutePath());
+                        String classFileName = FileUtil.fileBaseName(classFile.getAbsolutePath());
                         return classFileName.contains(javaFileName);
                     })
                     .collect(Collectors.toList());

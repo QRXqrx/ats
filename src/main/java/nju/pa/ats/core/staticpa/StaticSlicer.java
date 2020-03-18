@@ -128,14 +128,10 @@ public class StaticSlicer implements StaticSliceService {
         AtomTestCase atc = new AtomTestCase("", srcLines);
         SlicerUtil.excludeExtraAssert(atc);
         return atc;
-        /*List<String> toTrim = srcLines.stream().map(String::trim).collect(Collectors.toList());
-        return new AtomTestCase(atsName, toTrim);*/
     }
 
     private String getAtcName() {
-//        int loc = this.javaPath.lastIndexOf(File.separator);
-//        return this.javaPath.substring(loc + 1).replace(".java", "");
-        return FileUtil.fileSimpleNameExcludeSuffix(this.javaPath);
+        return FileUtil.fileBaseName(this.javaPath);
     }
 
     @Override

@@ -15,7 +15,139 @@ public class FileUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private FileUtil() { }
 
-    public static String fileSimpleNameExcludeSuffix(String path) {
+
+    public static void clearBlankLinesForJavaFile(File file) throws IOException {
+        if(!file.exists()) {
+            throw new IllegalArgumentException("File is not exits:" + file.getAbsolutePath());
+        }
+        if(file.isDirectory()) {
+            List<File> allJavas = getAllFilesBySuffix(file, JAVA_SUFFIX);
+            for (File javaFile : allJavas) {
+                clearBlankLinesForJavaFile(javaFile);
+            }
+            return;
+        }
+        List<String> lines = readContentsLineByLine(file);
+        StringBuilder newContentBuilder = new StringBuilder(lines.size() * 150);
+        for (String line : lines) {
+
+            if("".equals(line.trim())) {
+//                System.out.println("Blank line.");
+                continue;
+            }
+            newContentBuilder.append(line).append("\n");
+        }
+        String outputPath = writeContentIntoFile(file, newContentBuilder.toString());
+        System.out.println("Clear blank lines for [" + outputPath + "] done.");
+    }
+
+    public static void clearBlankLinesForJavaFile(String path) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+        clearBlankLinesForJavaFile(new File(path));
+    }
+
+    /**
+     * Clear all comment for a java file.
+     *
+     * @param file is a java source file.
+     * @param charset file charset, default is UTF-8.
+     * @throws IOException if read wrongly.
+     *
+     * @date 2020-03-18
+     */
+    public static void clearCommentsForJavaFile(File file, String charset) throws IOException {
+        if(!file.exists()) {
+            throw new IllegalArgumentException("File is not exits:" + file.getAbsolutePath());
+        }
+        if(file.isDirectory()) {
+            List<File> allJavas = getAllFilesBySuffix(file, JAVA_SUFFIX);
+            for (File javaFile : allJavas) {
+                clearCommentsForJavaFile(javaFile, charset);
+            }
+            return;
+        }
+        String content = readAllcontent(file, charset);
+        String regex = "\\/\\/[^\\n]*|\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*+\\/";
+//        String regex = "\\/\\/[^\\n]*|\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*\\/";
+        String newContent = content.replaceAll(regex, "");
+        String outputPath = writeContentIntoFile(file, newContent);
+        System.out.println("Clear comments for [" + outputPath + "] done.");
+    }
+
+    public static void clearCommentsForJavaFile(File file) throws IOException {
+        clearCommentsForJavaFile(file, "UTF-8");
+    }
+
+    public static void clearCommentsForJavaFile(String path, String charset) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+        clearCommentsForJavaFile(new File(path), charset);
+    }
+
+    public static void clearCommentsForJavaFile(String path) throws IOException {
+        clearCommentsForJavaFile(path, "UTF-8");
+    }
+
+
+    /**
+     * Read all content from a readable file.
+     *
+     * @param file is a readable file.
+     * @param charset charset of the file.
+     * @return content of the file.
+     * @throws IOException if read wrongly.
+     *
+     * @date 2020-03-18
+     */
+    public static String readAllcontent(File file, String charset) throws IOException {
+        if(!file.isFile()) {
+            throw new IllegalArgumentException("Invalid file. Please input a path of file.");
+        }
+        if(!file.canRead()) {
+            throw new IllegalArgumentException(file.getAbsolutePath() + ": cannot be read");
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+        StringBuilder contentBuilder = new StringBuilder();
+        String line;
+        while((line = br.readLine()) != null) {
+            contentBuilder.append(line).append("\n");
+        }
+        br.close();
+        return contentBuilder.toString();
+    }
+
+    /**
+     * Read all content from a readable file. Use default charset: UTF-8.
+     *
+     * @param file is a readable file.
+     * @return content of the file.
+     * @throws IOException if read wrongly.
+     *
+     * @date 2020-03-18
+     */
+    public static String readAllcontent(File file) throws IOException {
+        return readAllcontent(file, "UTF-8");
+    }
+
+    public static String readAllcontent(String path) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+        return readAllcontent(new File(path));
+    }
+
+
+    /**
+     *
+     * @param path of the file you want to get its base name.
+     * @return base name of a file.
+     *
+     * @date 2020-03-18
+     */
+    public static String fileBaseName(String path) {
         File file = new File(path);
         return file.getName().replace(suffixOf(file), "");
     }
@@ -23,24 +155,21 @@ public class FileUtil {
     /**
      * Read content from a txt file, one line for one item.
      *
-     * @param path A path of a property file, written in a txt file.
+     * @param file A readable file.
      * @return A List of parsing result.
+     *
+     * @date 2020-03-18
      */
-    public static List<String> readContentsLineByLine(String path) throws IOException {
-        if(path == null) {
-            throw new IllegalArgumentException("Path should not be null.");
-        }
-
-        File file = new File(path);
+    public static List<String> readContentsLineByLine(File file) throws IOException {
         if(!file.isFile()) {
-            throw new IllegalArgumentException("Invalid path. Please input file path.");
+            throw new IllegalArgumentException("Invalid file. Please input a path of file.");
         }
         if(!file.canRead()) {
-            throw new IllegalArgumentException(path + ": cannot be read");
+            throw new IllegalArgumentException(file.getAbsolutePath() + ": cannot be read");
         }
 
         List<String> contents = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader(path));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
         while((line = br.readLine()) != null) {
             contents.add(line);
@@ -49,21 +178,23 @@ public class FileUtil {
         br.close();
         return contents;
     }
-
-
     /**
+     * Read content from a txt file, one line for one item.
      *
-     * @param path A path of a file.
-     * @param content The content needed be written into the file.
-     * @return The absolute path of written file.
-     * @throws IOException when write wrongly.
+     * @param path A path of a property file, written in a txt file.
+     * @return A List of parsing result.
+     *
+     * @date 2020-03-18
      */
-    public static String writeContentIntoFile(String path, String content) throws IOException {
+    public static List<String> readContentsLineByLine(String path) throws IOException {
         if(path == null) {
             throw new IllegalArgumentException("Path should not be null.");
         }
-
         File file = new File(path);
+        return readContentsLineByLine(file);
+    }
+
+    public static String writeContentIntoFile(File file, String content) throws IOException {
         if(!file.exists()) {
             boolean newFile = file.createNewFile();
             if(newFile) {
@@ -73,19 +204,36 @@ public class FileUtil {
             }
         }
         if(!file.canWrite()) {
-            throw new IllegalArgumentException(path + ": cannot be written");
+            throw new IllegalArgumentException(file + ": cannot be written");
         }
         if(!file.isFile()) {
             throw new IllegalArgumentException("Invalid path. Please input file path.");
         }
 
-//        BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(content);
-        writer.newLine();
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        bw.write(content);
+        bw.newLine();
 
-        writer.close();
+        bw.close();
         return file.getAbsolutePath();
+    }
+
+
+    /**
+     *
+     * @param path A path of a file.
+     * @param content The content needed be written into the file.
+     * @return The absolute path of written file.
+     * @throws IOException when write wrongly.
+     *
+     * @date 2020-03-18
+     */
+    public static String writeContentIntoFile(String path, String content) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+        File file = new File(path);
+        return writeContentIntoFile(file, content);
     }
 
     public static String writeContentsIntoFile(String path, List<String> contents) throws IOException {
@@ -204,21 +352,21 @@ public class FileUtil {
     public static final String CLASS_SUFFIX = ".class";
     public static final String TXT_SUFFIX = ".txt";
 
+
     /**
-     *  Get all files that has a suffix as <param>suffix</param>
-     *  under directory <param>dir</param> recursively.
+     * Get all files that has a suffix as <param>suffix</param>
+     * under directory <param>directory</param> recursively.
      *
-     * @param dir An absolute path of a directory.
+     * @param directory A directory.
      * @param suffix The type of target files. suffix should start with a '.'.
      * @return A List of target files.
      * @throws IllegalArgumentException When dir doesn't represent a directory.
      *
-     * @date 2020-02-10
+     * @date 2020-03-18
      */
-    public static List<File> getAllFilesBySuffix(String  dir, String suffix) {
-        File directory = new File(dir);
+    public static List<File> getAllFilesBySuffix(File directory, String suffix) {
         if(!directory.isDirectory()) {
-            throw new IllegalArgumentException(dir + " should be a absolute path of a directory!");
+            throw new IllegalArgumentException(directory.getAbsolutePath() + " should be a directory!");
         }
         // Give out warning when suffix doesn't start with '.'.
         if(suffix.charAt(0) != '.') {
@@ -243,6 +391,22 @@ public class FileUtil {
             }
         }
         return targetFiles;
+    }
+
+    /**
+     *  Get all files that has a suffix as <param>suffix</param>
+     *  under directory <param>dir</param> recursively.
+     *
+     * @param dirPath An absolute path of a directory.
+     * @param suffix The type of target files. suffix should start with a '.'.
+     * @return A List of target files.
+     * @throws IllegalArgumentException When dir doesn't represent a directory.
+     *
+     * @date 2020-02-10
+     */
+    public static List<File> getAllFilesBySuffix(String dirPath, String suffix) {
+        File directory = new File(dirPath);
+        return getAllFilesBySuffix(directory, suffix);
     }
 
 

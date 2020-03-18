@@ -224,7 +224,7 @@ public class TextSlicer implements TextSliceService {
     }
 
     public String getNewTestClassName() {
-        String oldClassName = FileUtil.fileSimpleNameExcludeSuffix(javaPath);
+        String oldClassName = FileUtil.fileBaseName(javaPath);
         return oldClassName.replace("Test", "NewTest");
     }
 
