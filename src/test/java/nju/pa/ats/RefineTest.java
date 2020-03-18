@@ -2,8 +2,8 @@ package nju.pa.ats;
 
 import com.ibm.wala.ipa.callgraph.AnalysisScope;
 import nju.pa.ats.core.result.AtomTestCase;
-import nju.pa.ats.core.slicer.Slicer;
-import nju.pa.ats.core.slicer.SlicerConfig;
+import nju.pa.ats.core.staticpa.StaticSlicer;
+import nju.pa.ats.core.staticpa.SlicerConfig;
 import nju.pa.ats.util.SlicerUtil;
 import org.junit.Test;
 
@@ -48,11 +48,11 @@ public class RefineTest {
 
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.slice();
+        StaticSlicer staticSlicer = new StaticSlicer(config, javaPathAstar, targetMethods);
+        List<AtomTestCase> atomTestCases = staticSlicer.slice();
         System.out.println(atomTestCases.size());
-        slicer.setDistinct(true);
-        atomTestCases = slicer.slice();
+        staticSlicer.setDistinct(true);
+        atomTestCases = staticSlicer.slice();
         System.out.println(atomTestCases.size());
     }
 
@@ -67,8 +67,8 @@ public class RefineTest {
 
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.slice();
+        StaticSlicer staticSlicer = new StaticSlicer(config, javaPathAstar, targetMethods);
+        List<AtomTestCase> atomTestCases = staticSlicer.slice();
 
         List<AtomTestCase> atsAfterDistinct = atomTestCases.stream()
                 .distinct()
@@ -123,8 +123,8 @@ public class RefineTest {
 
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.slice();
+        StaticSlicer staticSlicer = new StaticSlicer(config, javaPathAstar, targetMethods);
+        List<AtomTestCase> atomTestCases = staticSlicer.slice();
 
         List<AtomTestCase> atsAfterDistinct = atomTestCases.stream()
                 .distinct()
@@ -144,8 +144,8 @@ public class RefineTest {
 
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPathAstar, targetMethods);
-        List<AtomTestCase> atomTestCases = slicer.slice();
+        StaticSlicer staticSlicer = new StaticSlicer(config, javaPathAstar, targetMethods);
+        List<AtomTestCase> atomTestCases = staticSlicer.slice();
 
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());

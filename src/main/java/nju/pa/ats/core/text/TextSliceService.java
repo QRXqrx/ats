@@ -5,7 +5,7 @@ package nju.pa.ats.core.text;
  * @email QRXwzx@outlook.com
  * @date 2020-03-05
  */
-public interface SliceTextService {
+public interface TextSliceService {
 
     String generateNewTestClassContent();
 

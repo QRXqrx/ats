@@ -1,4 +1,4 @@
-package nju.pa.ats.core.slicer.deprecate;
+package nju.pa.ats.core.staticpa.deprecate;
 
 import com.ibm.wala.ipa.callgraph.CGNode;
 import com.ibm.wala.ipa.slicer.Statement;

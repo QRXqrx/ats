@@ -227,7 +227,7 @@ public class SlicerUtil {
     /**
      * Get <code>AnalysisScope</code> dynamically.
      *
-     * @param classDirPath From which slicer can read a dynamic scope.
+     * @param classDirPath From which staticpa can read a dynamic scope.
      * @param exPath Path of exclusion file, output a warning when it is "" and use a default exclusion file.
      * @param classLoader Use this classLoader to load class file into memory.
      * @return AnalysisScope
@@ -257,7 +257,7 @@ public class SlicerUtil {
     /**
      * This is a simpler way.
      *
-     * @param classDirPath from which slicer can read a dynamic scope.
+     * @param classDirPath from which staticpa can read a dynamic scope.
      * @param classLoader Use this classLoader to load class file into memory.
      * @return AnalysisScope
      * @throws IOException when read scope wrongly.

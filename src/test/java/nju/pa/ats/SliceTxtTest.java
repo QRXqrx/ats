@@ -277,8 +277,8 @@ public class SliceTxtTest {
                 "private static List<AtomTestCase> makeSlice(\n" +
                         "            String classDir,\n" +
                         "            String javaPath,\n" +
-                        "            com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo,\n" +
-                        "            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions cdo,\n" +
+                        "            com.ibm.wala.ipa.staticpa.StaticSlicer.DataDependenceOptions ddo,\n" +
+                        "            com.ibm.wala.ipa.staticpa.StaticSlicer.ControlDependenceOptions cdo,\n" +
                         "            boolean isDistinct,\n" +
                         "            String targetMethodsPath\n" +
                         "    ) {\n" +
@@ -304,8 +304,8 @@ public class SliceTxtTest {
                         "            e.printStackTrace();\n" +
                         "            System.exit(-1);\n" +
                         "        }\n" +
-                        "        Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);\n" +
-                        "        return slicer.slice();\n" +
+                        "        StaticSlicer staticpa = new StaticSlicer(config, javaPath, targetMethods, isDistinct);\n" +
+                        "        return staticpa.slice();\n" +
                         "    }";
         dump(drawAsserts(test));
     }
@@ -316,8 +316,8 @@ public class SliceTxtTest {
                 "private static List<AtomTestCase> makeSlice(\n" +
                         "            String classDir,\n" +
                         "            String javaPath,\n" +
-                        "            com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions ddo,\n" +
-                        "            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions cdo,\n" +
+                        "            com.ibm.wala.ipa.staticpa.StaticSlicer.DataDependenceOptions ddo,\n" +
+                        "            com.ibm.wala.ipa.staticpa.StaticSlicer.ControlDependenceOptions cdo,\n" +
                         "            boolean isDistinct,\n" +
                         "            String targetMethodsPath\n" +
                         "    ) {\n" +
@@ -343,8 +343,8 @@ public class SliceTxtTest {
                         "            e.printStackTrace();\n" +
                         "            System.exit(-1);\n" +
                         "        }\n" +
-                        "        Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);\n" +
-                        "        return slicer.slice();\n" +
+                        "        StaticSlicer staticpa = new StaticSlicer(config, javaPath, targetMethods, isDistinct);\n" +
+                        "        return staticpa.slice();\n" +
                         "    }";
         List<TextSrcBlock> tryCatchBlocks = drawTryCatchs(test);
         tryCatchBlocks.forEach((block) -> System.out.println(block.dumpBlock()));

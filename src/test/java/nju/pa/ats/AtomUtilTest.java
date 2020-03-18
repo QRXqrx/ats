@@ -11,7 +11,7 @@ import com.ibm.wala.ipa.slicer.NormalStatement;
 import com.ibm.wala.ipa.slicer.Statement;
 import com.ibm.wala.ssa.IR;
 import com.ibm.wala.ssa.SSAInstruction;
-import nju.pa.ats.core.slicer.deprecate.SlicerImpl1;
+import nju.pa.ats.core.staticpa.deprecate.SlicerImpl1;
 import nju.pa.ats.util.AtomUtil;
 import org.junit.Test;
 

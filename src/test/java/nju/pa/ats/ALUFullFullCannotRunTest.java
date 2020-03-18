@@ -3,13 +3,11 @@ package nju.pa.ats;
 import com.ibm.wala.ipa.callgraph.AnalysisScope;
 import com.ibm.wala.ipa.callgraph.CallGraph;
 import com.ibm.wala.ipa.slicer.SDG;
-import com.ibm.wala.ipa.slicer.Statement;
-import nju.pa.ats.core.slicer.Slicer;
+import nju.pa.ats.core.staticpa.StaticSlicer;
 import nju.pa.ats.util.SlicerUtil;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  *
@@ -28,9 +26,9 @@ public class ALUFullFullCannotRunTest {
         String correctJavaPath = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/ALU/src/test/java/net/mooctest/ALUTest.java";
 
         AnalysisScope scope = SlicerUtil.getDynamicScope(classDir, this.getClass().getClassLoader());
-        Slicer slicer = new Slicer(scope, correctJavaPath);
-        CallGraph cg = slicer.getConfig().getCallGraph();
-        SDG sdg = slicer.getConfig().getSDG();
+        StaticSlicer staticSlicer = new StaticSlicer(scope, correctJavaPath);
+        CallGraph cg = staticSlicer.getConfig().getCallGraph();
+        SDG sdg = staticSlicer.getConfig().getSDG();
 
 
 

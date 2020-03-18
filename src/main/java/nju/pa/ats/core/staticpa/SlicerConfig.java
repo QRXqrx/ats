@@ -1,4 +1,4 @@
-package nju.pa.ats.core.slicer;
+package nju.pa.ats.core.staticpa;
 
 import com.ibm.wala.classLoader.Language;
 import com.ibm.wala.ipa.callgraph.*;
@@ -13,7 +13,7 @@ import com.ibm.wala.ipa.slicer.Slicer;
 import com.ibm.wala.util.MonitorUtil;
 
 /**
- * The basic configurations of a Slicer.
+ * The basic configurations of a StaticSlicer.
  * AnalysisScope, ClassHierarchy, AnalysisOptions, ProgressMonitor,
  * EntryPoint, CallGraph, PointerAnalysis are configurations for creating an SDG,
  * while Data & Control DependenceOptions are for slice algorithm.

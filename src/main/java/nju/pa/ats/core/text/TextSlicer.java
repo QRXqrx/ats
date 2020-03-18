@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2020-03-05
  */
 @Deprecated
-public class TextSlicer implements SliceTextService {
+public class TextSlicer implements TextSliceService {
 
     private String javaPath;
 

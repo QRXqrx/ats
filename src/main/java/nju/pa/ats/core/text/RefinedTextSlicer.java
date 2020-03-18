@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @email QRXwzx@outlook.com
  * @date 2020-03-05
  */
-public class RefinedTextSlicer implements SliceTextService {
+public class RefinedTextSlicer implements TextSliceService {
 
     private String javaPath;
     private List<String> oldTests;

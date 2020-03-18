@@ -1,6 +1,6 @@
 import nju.pa.ats.core.result.AtomTestCase;
-import nju.pa.ats.core.slicer.Slicer;
-import nju.pa.ats.core.slicer.SlicerConfig;
+import nju.pa.ats.core.staticpa.StaticSlicer;
+import nju.pa.ats.core.staticpa.SlicerConfig;
 import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SettingUtil;
 import nju.pa.ats.util.SlicerUtil;
@@ -188,8 +188,8 @@ public class SliceProcessMultiJavaFiles {
                 System.exit(-1);
             }
 
-            Slicer slicer = new Slicer(config, javaPath, sliceTargets, isDistinct);
-            resultMap.put(javaPath, slicer.slice());
+            StaticSlicer staticSlicer = new StaticSlicer(config, javaPath, sliceTargets, isDistinct);
+            resultMap.put(javaPath, staticSlicer.slice());
         });
 
         return resultMap;

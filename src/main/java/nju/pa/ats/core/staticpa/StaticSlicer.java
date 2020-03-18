@@ -1,4 +1,4 @@
-package nju.pa.ats.core.slicer;
+package nju.pa.ats.core.staticpa;
 
 import com.ibm.wala.ipa.callgraph.AnalysisScope;
 import com.ibm.wala.ipa.slicer.Statement;
@@ -9,7 +9,6 @@ import nju.pa.ats.util.AtomUtil;
 import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SlicerUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,13 +17,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * TODO: Add a new **Slicer extends this, which provides methods for generating new test
+ * TODO: Add a new **StaticSlicer extends this, which provides methods for generating new test
  * TODO: class after slice.
  *
- * First Slicer, implements <interface>SliceService</interface>
- * You could construct a Slicer by passing an AnalysisScope or SlicerConfig,
+ * First StaticSlicer, implements <interface>StaticSliceService</interface>
+ * You could construct a StaticSlicer by passing an AnalysisScope or SlicerConfig,
  * which also contains an AnalysisScope. So AnalysisScope is indisepensable for
- * a Slicer. Please make sure your AnalysisScope is correct.
+ * a StaticSlicer. Please make sure your AnalysisScope is correct.
  *
  * For construct a slice, AnalysisScope and source path are indispensable.
  *
@@ -33,7 +32,7 @@ import java.util.stream.Collectors;
  * @email QRXwzx@outlook.com
  * @date 2020-02-13
  */
-public class Slicer implements SliceService {
+public class StaticSlicer implements StaticSliceService {
 
     private SlicerConfig config;
     private String javaPath;
@@ -45,49 +44,49 @@ public class Slicer implements SliceService {
      * @param scope AnalysisScope for slice
      * @param javaPath From which we get readable source code.
      */
-    public Slicer(AnalysisScope scope, String javaPath) {
+    public StaticSlicer(AnalysisScope scope, String javaPath) {
         this.config = new SlicerConfig(scope);
         this.javaPath = javaPath;
     }
 
-    public Slicer(AnalysisScope scope, String javaPath, boolean isDistinct) {
+    public StaticSlicer(AnalysisScope scope, String javaPath, boolean isDistinct) {
         this.config = new SlicerConfig(scope);
         this.javaPath = javaPath;
         this.isDistinct = isDistinct;
     }
 
 
-    public Slicer(AnalysisScope scope, String javaPath, List<String> targetMethods) {
+    public StaticSlicer(AnalysisScope scope, String javaPath, List<String> targetMethods) {
         this.config = new SlicerConfig(scope);
         this.javaPath = javaPath;
         this.targetMethods = targetMethods;
     }
 
-    public Slicer(AnalysisScope scope, String javaPath, List<String> targetMethods, boolean isDistinct) {
+    public StaticSlicer(AnalysisScope scope, String javaPath, List<String> targetMethods, boolean isDistinct) {
         this.config = new SlicerConfig(scope);
         this.javaPath = javaPath;
         this.targetMethods = targetMethods;
         this.isDistinct = isDistinct;
     }
 
-    public Slicer(SlicerConfig config, String javaPath) {
+    public StaticSlicer(SlicerConfig config, String javaPath) {
         this.config = config;
         this.javaPath = javaPath;
     }
 
-    public Slicer(SlicerConfig config, String javaPath, boolean isDistinct) {
+    public StaticSlicer(SlicerConfig config, String javaPath, boolean isDistinct) {
         this.config = config;
         this.javaPath = javaPath;
         this.isDistinct = isDistinct;
     }
 
-    public Slicer(SlicerConfig config, String javaPath, List<String> targetMethods) {
+    public StaticSlicer(SlicerConfig config, String javaPath, List<String> targetMethods) {
         this.config = config;
         this.javaPath = javaPath;
         this.targetMethods = targetMethods;
     }
 
-    public Slicer(SlicerConfig config, String javaPath, List<String> targetMethods, boolean isDistinct) {
+    public StaticSlicer(SlicerConfig config, String javaPath, List<String> targetMethods, boolean isDistinct) {
         this.config = config;
         this.javaPath = javaPath;
         this.targetMethods = targetMethods;

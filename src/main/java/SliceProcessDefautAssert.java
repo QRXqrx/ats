@@ -1,6 +1,6 @@
 import nju.pa.ats.core.result.AtomTestCase;
-import nju.pa.ats.core.slicer.Slicer;
-import nju.pa.ats.core.slicer.SlicerConfig;
+import nju.pa.ats.core.staticpa.StaticSlicer;
+import nju.pa.ats.core.staticpa.SlicerConfig;
 import nju.pa.ats.util.FileUtil;
 import nju.pa.ats.util.SettingUtil;
 import nju.pa.ats.util.SlicerUtil;
@@ -96,8 +96,8 @@ public class SliceProcessDefautAssert {
         List<String> targetMethods = new ArrayList<>();
         // TODO: Use settings configuration to get targetMethods
         targetMethods.add("assert");
-        Slicer slicer = new Slicer(config, javaPath, targetMethods, isDistinct);
-        return slicer.slice();
+        StaticSlicer staticSlicer = new StaticSlicer(config, javaPath, targetMethods, isDistinct);
+        return staticSlicer.slice();
     }
 
     private static void outputToFile(String outputDir, String outputFileName , List<AtomTestCase> atomTestCases) {

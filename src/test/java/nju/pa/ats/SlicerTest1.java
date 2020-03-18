@@ -2,8 +2,8 @@ package nju.pa.ats;
 
 import com.ibm.wala.ipa.callgraph.AnalysisScope;
 import nju.pa.ats.core.result.AtomTestCase;
-import nju.pa.ats.core.slicer.Slicer;
-import nju.pa.ats.core.slicer.SlicerConfig;
+import nju.pa.ats.core.staticpa.StaticSlicer;
+import nju.pa.ats.core.staticpa.SlicerConfig;
 import nju.pa.ats.util.SlicerUtil;
 import org.junit.Test;
 
@@ -25,18 +25,18 @@ public class SlicerTest1 {
 
     /*SlicerConfig config = new SlicerConfig(
             scope,
-            com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions.FULL,
-            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions.NO_EXCEPTIONAL_EDGES
+            com.ibm.wala.ipa.staticpa.StaticSlicer.DataDependenceOptions.FULL,
+            com.ibm.wala.ipa.staticpa.StaticSlicer.ControlDependenceOptions.NO_EXCEPTIONAL_EDGES
     );
     SlicerConfig config = new SlicerConfig(
             scope,
-            com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions.REFLECTION,
-            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions.NO_EXCEPTIONAL_EDGES
+            com.ibm.wala.ipa.staticpa.StaticSlicer.DataDependenceOptions.REFLECTION,
+            com.ibm.wala.ipa.staticpa.StaticSlicer.ControlDependenceOptions.NO_EXCEPTIONAL_EDGES
     );
     SlicerConfig config = new SlicerConfig(
             scope,
-            com.ibm.wala.ipa.slicer.Slicer.DataDependenceOptions.REFLECTION,
-            com.ibm.wala.ipa.slicer.Slicer.ControlDependenceOptions.FULL
+            com.ibm.wala.ipa.staticpa.StaticSlicer.DataDependenceOptions.REFLECTION,
+            com.ibm.wala.ipa.staticpa.StaticSlicer.ControlDependenceOptions.FULL
     );*/
 
     @Test
@@ -54,9 +54,9 @@ public class SlicerTest1 {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
 
-        Slicer mySlicer = new Slicer(config, javaPathAstar, targetMethods);
+        StaticSlicer myStaticSlicer = new StaticSlicer(config, javaPathAstar, targetMethods);
 
-        List<AtomTestCase> atomTestCases = mySlicer.slice();
+        List<AtomTestCase> atomTestCases = myStaticSlicer.slice();
         System.out.println(atomTestCases.size());
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());
@@ -81,9 +81,9 @@ public class SlicerTest1 {
         List<String> targetMethods = new ArrayList<>();
         targetMethods.add("assert");
 
-        Slicer mySlicer = new Slicer(config, javaPathALU, targetMethods);
+        StaticSlicer myStaticSlicer = new StaticSlicer(config, javaPathALU, targetMethods);
 
-        List<AtomTestCase> atomTestCases = mySlicer.slice();
+        List<AtomTestCase> atomTestCases = myStaticSlicer.slice();
         System.out.println(atomTestCases.size());
         atomTestCases.forEach((ats) -> {
             System.out.println(ats.dumpSnippet());

@@ -52,7 +52,7 @@ public class GetOuterDependencyTest {
                 "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/test/java/nju/pa/ats/ALUFullFullCannotRunTest.java",
                 "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/test/java/nju/pa/ats/FileUtilTest.java",
                 "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/ALU/src/test/java/net/mooctest/ALUTest.java",
-                "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/main/java/nju/pa/ats/core/slicer/Slicer.java"
+                "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/src/main/java/nju/pa/ats/core/staticpa/StaticSlicer.java"
         };
 
         for (String onePath : paths) {
