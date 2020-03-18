@@ -19,6 +19,13 @@ import java.util.stream.Collectors;
 public class FileUtilTest {
 
     @Test
+    public void testMultiToOne0() throws IOException {
+        String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/text-operation-AStarTest.java";
+        FileUtil.multiLineToOneForJavaFile(path);
+    }
+
+
+    @Test
     public void testClear1() throws IOException {
         String path = "C:/Users/QRX/Desktop/MyWorkplace/Postgraduate/Tasks/task4_atom_test_generation/ats/target/example-programs/text-operation-AStarTest.java";
         FileUtil.clearCommentsForJavaFile(path);

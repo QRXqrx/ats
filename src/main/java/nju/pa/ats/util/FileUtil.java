@@ -15,7 +15,61 @@ public class FileUtil {
     /** Don't permit user construct this class, as this is a util class. */
     private FileUtil() { }
 
+    public static final String JAVA_SUFFIX = ".java";
+    public static final String CLASS_SUFFIX = ".class";
+    public static final String TXT_SUFFIX = ".txt";
+    public static final String NEW_LINE = System.lineSeparator();
 
+    /**
+     *
+     * @param line a src line
+     * @return flag: whether this line need a \n.
+     */
+    private static boolean needNewLine(String line) {
+        String trimLine = line.trim();
+        return
+                trimLine.endsWith(";") || trimLine.endsWith("{") || trimLine.endsWith("}") ||
+                trimLine.startsWith("@") || trimLine.startsWith("if") || trimLine.startsWith("for");
+    }
+
+    public static void multiLineToOneForJavaFile(File file) throws IOException {
+        if(!file.exists()) {
+            throw new IllegalArgumentException("File is not exits:" + file.getAbsolutePath());
+        }
+        if(file.isDirectory()) {
+            List<File> allJavas = getAllFilesBySuffix(file, JAVA_SUFFIX);
+            for (File javaFile : allJavas) {
+                multiLineToOneForJavaFile(javaFile);
+            }
+            return;
+        }
+        List<String> lines = readContentsLineByLine(file);
+        StringBuilder newContentBuider = new StringBuilder(lines.size() * 150);
+        for (String line : lines) {
+            newContentBuider.append(line);
+            if(needNewLine(line)) {
+                newContentBuider.append(NEW_LINE);
+            }
+        }
+        String ouputPath = writeContentIntoFile(file, newContentBuider.toString());
+        System.out.println("Change multi-line to one for [" + ouputPath + "] done");
+    }
+
+    public static void multiLineToOneForJavaFile(String path) throws IOException {
+        if(path == null) {
+            throw new IllegalArgumentException("Path should not be null.");
+        }
+        multiLineToOneForJavaFile(new File(path));
+    }
+
+    /**
+     * Clear all blank lines for a java file.
+     *
+     * @param file is a java file.
+     * @throws IOException if read wrongly.
+     *
+     * @date 2020-03-18
+     */
     public static void clearBlankLinesForJavaFile(File file) throws IOException {
         if(!file.exists()) {
             throw new IllegalArgumentException("File is not exits:" + file.getAbsolutePath());
@@ -32,10 +86,9 @@ public class FileUtil {
         for (String line : lines) {
 
             if("".equals(line.trim())) {
-//                System.out.println("Blank line.");
                 continue;
             }
-            newContentBuilder.append(line).append("\n");
+            newContentBuilder.append(line).append(NEW_LINE);
         }
         String outputPath = writeContentIntoFile(file, newContentBuilder.toString());
         System.out.println("Clear blank lines for [" + outputPath + "] done.");
@@ -113,7 +166,7 @@ public class FileUtil {
         StringBuilder contentBuilder = new StringBuilder();
         String line;
         while((line = br.readLine()) != null) {
-            contentBuilder.append(line).append("\n");
+            contentBuilder.append(line).append(NEW_LINE);
         }
         br.close();
         return contentBuilder.toString();
@@ -348,9 +401,7 @@ public class FileUtil {
     }
 
 
-    public static final String JAVA_SUFFIX = ".java";
-    public static final String CLASS_SUFFIX = ".class";
-    public static final String TXT_SUFFIX = ".txt";
+
 
 
     /**
